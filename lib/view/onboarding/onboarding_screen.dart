@@ -27,48 +27,24 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       RulerRange(begin: 10000, end: 100000, scale: 1000)
     ];
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.amber,
+      appBar: AppBar(
+        backgroundColor: Colors.amber,
+      ),
+      body: WheelChooser.integer(
+        listWidth: 100.0,
+        onValueChanged: (weight) {},
+        maxValue: 200,
+        minValue: 1,
+        initValue: 90,
+        horizontal: false,
+        selectTextStyle: TextStyle(
+          color: Colors.red,
+          fontWeight: FontWeight.bold,
         ),
-        body: Column(
-          children: [
-            Container(
-              // margin: const EdgeInsets.only(top: 8.0),
-              child: RulerPicker(
-                // controller: _rulerPickerController!,
-                onBuildRulerScaleText: (index, value) {
-                  return value.toInt().toString();
-                },
-                ranges: ranges,
-
-                scaleLineStyleList: const [
-                  ScaleLineStyle(
-                      color: Colors.grey, width: 1.5, height: 30, scale: 0),
-                  ScaleLineStyle(
-                      color: Colors.grey, width: 1, height: 25, scale: 5),
-                  ScaleLineStyle(
-                      color: Colors.grey, width: 1, height: 15, scale: -1)
-                ],
-
-                onValueChanged: (value) {
-                  log("value:$value");
-                  setState(() {
-                    getValue = value;
-                  });
-                  print(getValue);
-                },
-                width: MediaQuery.of(context).size.width,
-                height: 80,
-                rulerMarginTop: 8,
-                // marker: Container(
-                //     width: 8,
-                //     height: 50,
-                //     decoration: BoxDecoration(
-                //         color: Colors.red.withAlpha(100),
-                //         borderRadius: BorderRadius.circular(5))),
-              ),
-            ),
-          ],
-        ));
+        unSelectTextStyle: TextStyle(
+          color: Colors.black,
+        ),
+      ),
+    );
   }
 }
