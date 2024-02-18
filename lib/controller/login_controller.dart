@@ -1,18 +1,16 @@
-import 'dart:convert';
-import 'dart:developer';
 
 import 'package:be_healthy/core/class/curd.dart';
 import 'package:be_healthy/data/remote/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart' as http;
+// import 'package:http/http.dart' as http;
 
 class LoginController extends GetxController {
   Crud curd = Crud();
   SignupData signupData = SignupData(Get.put(Crud()));
   GlobalKey<FormState> formState = GlobalKey<FormState>();
-  late TextEditingController username;
-  late TextEditingController password;
+  // late TextEditingController username;
+  // late TextEditingController password;
   late bool isHiddenn = true;
   obscurePassword() {
     isHiddenn = !isHiddenn;

@@ -1,4 +1,3 @@
-import 'package:be_healthy/core/constant/color.dart';
 import 'package:flutter/material.dart';
 
 class WidgetNew extends StatelessWidget {

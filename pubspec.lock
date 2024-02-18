@@ -65,6 +65,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.6"
+  dropdown_button2:
+    dependency: "direct main"
+    description:
+      name: dropdown_button2
+      sha256: b0fe8d49a030315e9eef6c7ac84ca964250155a6224d491c1365061bc974a9e1
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.3.9"
   fake_async:
     dependency: transitive
     description:
@@ -115,6 +123,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  font_awesome_flutter:
+    dependency: "direct main"
+    description:
+      name: font_awesome_flutter
+      sha256: "275ff26905134bcb59417cf60ad979136f1f8257f2f449914b2c3e05bbb4cd6f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "10.7.0"
   get:
     dependency: "direct main"
     description:
@@ -299,6 +315,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.8"
+  ruler_scale_picker:
+    dependency: "direct main"
+    description:
+      name: ruler_scale_picker
+      sha256: dcbefd1c3ac5ba6a0e7e708c0cf01a03221903d7a98193775cd08a4072163218
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.0"
   rulers:
     dependency: "direct main"
     description:

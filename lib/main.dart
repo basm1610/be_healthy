@@ -1,6 +1,3 @@
-import 'package:be_healthy/view/auth/login_screen.dart';
-import 'package:be_healthy/view/mydata/screen_one.dart';
-import 'package:be_healthy/view/onboarding/onboarding_screen.dart';
 import 'package:be_healthy/view/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -15,12 +12,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
+    return GetMaterialApp(
+        theme: ThemeData(
+            useMaterial3: true,
+            scaffoldBackgroundColor: Colors.white,
+            cardColor: Colors.amber),
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-        home: ScreenOne()
+        home: 
+        // ScreenTwo()
         //  LoginScreen(),
-        // SplashScreen(),
+        const SplashScreen(),
         );
   }
 }

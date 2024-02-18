@@ -3,13 +3,10 @@ import 'package:flutter/material.dart';
 
 class BottomBarWidget extends StatelessWidget {
   final void Function()? onPressednext;
-  final void Function()? onTapBack;
-  final bool? isBack;
+    
   const BottomBarWidget({
     super.key,
     this.onPressednext,
-    this.isBack,
-    this.onTapBack,
   });
 
   @override
@@ -17,23 +14,8 @@ class BottomBarWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
       child: Row(
-          mainAxisAlignment: isBack == true
-              ? MainAxisAlignment.spaceBetween
-              : MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            isBack == true
-                ? InkWell(
-                    onTap: onTapBack,
-                    child: const CircleAvatar(
-                      radius: 22,
-                      child: Icon(
-                        Icons.arrow_back_outlined,
-                        color: Colors.black,
-                        size: 30,
-                      ),
-                    ),
-                  )
-                : const Text(""),
             MaterialButton(
               padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
               shape: RoundedRectangleBorder(

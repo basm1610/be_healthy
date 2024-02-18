@@ -34,7 +34,9 @@ class LoginScreen extends StatelessWidget {
                     "Email",
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
-                   CustomTextField(hintText: "Enter your Email",controller: controller.username),
+                   CustomTextField(hintText: "Enter your Email",
+                  //  controller: controller.username
+                   ),
                   const SizedBox(
                     height: 36,
                   ),
@@ -43,7 +45,7 @@ class LoginScreen extends StatelessWidget {
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   CustomTextField(
-                      controller: controller.password,
+                      // controller: controller.password,
                       hintText: "Enter your password",
                       icon: controller.isHiddenn
                           ? Icons.remove_red_eye
