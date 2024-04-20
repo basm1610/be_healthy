@@ -26,9 +26,9 @@ class CardAge extends StatelessWidget {
                           const SizedBox(
                             height: 20,
                           ),
-                          const Text(
-                            "Age",
-                            style: TextStyle(
+                           Text(
+                            "Age".tr,
+                            style: const TextStyle(
                                 fontSize: 24, fontWeight: FontWeight.w600),
                           ),
                           const SizedBox(

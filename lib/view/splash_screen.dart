@@ -21,12 +21,11 @@ class SplashScreen extends StatelessWidget {
         children: [
           Center(
               child: SizedBox(
-                  // height: 100,
                   child: SvgPicture.asset(
             "assets/images/icon.svg",
             semanticsLabel: 'My SVG Image',
           ))),
-          Text("Be Healthy",
+          Text("TextSplashScreen".tr,
               style: GoogleFonts.inter(
                   fontWeight: FontWeight.w900,
                   shadows: <Shadow>[

@@ -14,7 +14,7 @@ class ScreenTwo extends StatelessWidget {
     MyDataController controller = Get.put(MyDataController());
     return Scaffold(
         bottomNavigationBar: CustomButtonData(
-            title: "Calculate",
+            title: "Finish".tr,
             controller: controller,
             onPressed: () {
               log("select Item is ${controller.selectedValue}");
@@ -23,9 +23,9 @@ class ScreenTwo extends StatelessWidget {
             }),
         appBar: AppBar(
           surfaceTintColor: Colors.transparent,
-          title: const Text(
-            "MyData",
-            style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+          title:  Text(
+            "MyData".tr,
+            style: const TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
           ),
           centerTitle: true,
         ),

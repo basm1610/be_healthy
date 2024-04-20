@@ -20,9 +20,9 @@ class CustomDropDownButton extends GetView<MyDataController> {
                     dropdownStyleData: DropdownStyleData(
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15))),
-                    hint: const Text(
-                      'Choose physical activity',
-                      style: TextStyle(
+                    hint:  Text(
+                      'ChoosePhysicalActivity'.tr,
+                      style: const TextStyle(
                         fontSize: 18,
                       ),
                     ),
@@ -30,7 +30,7 @@ class CustomDropDownButton extends GetView<MyDataController> {
                         .map((String item) => DropdownMenuItem<String>(
                               value: item,
                               child: Text(
-                                item,
+                                item.tr,
                                 style: const TextStyle(
                                   fontSize: 16,
                                 ),

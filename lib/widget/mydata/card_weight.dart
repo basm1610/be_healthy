@@ -23,9 +23,9 @@ class CardWeight extends GetView<MyDataController> {
                       const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                   child: Column(
                     children: [
-                      const Text(
-                        "Weight",
-                        style: TextStyle(
+                       Text(
+                        "Weight".tr,
+                        style: const TextStyle(
                             fontSize: 24, fontWeight: FontWeight.w600),
                       ),
                       WheelChooser.integer(

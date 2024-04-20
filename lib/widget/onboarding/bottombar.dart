@@ -1,5 +1,6 @@
 import 'package:be_healthy/core/constant/color.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class BottomBarWidget extends StatelessWidget {
   final void Function()? onPressednext;
@@ -22,14 +23,14 @@ class BottomBarWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(48)),
               color: AppColor.primaryColor,
               onPressed: onPressednext,
-              child: const Row(
+              child:  Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Next",
-                    style: TextStyle(fontSize: 17, color: Colors.white),
+                    "ButtonOnBoarding".tr,
+                    style: const TextStyle(fontSize: 17, color: Colors.white),
                   ),
-                  Icon(
+                  const Icon(
                     Icons.arrow_right_outlined,
                     color: Colors.white,
                     // size: ,

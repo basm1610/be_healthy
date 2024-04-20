@@ -1,5 +1,6 @@
 import 'package:be_healthy/controller/mydata_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:wheel_chooser/wheel_chooser.dart';
 
 import '../../core/constant/color.dart';
@@ -27,15 +28,15 @@ class CardHeight extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              const Row(
+               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Height ",
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    "Height".tr,
+                    style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    "(cm)",
+                    "Cm".tr,
                   )
                 ],
               ),

@@ -16,8 +16,9 @@ class ScreenOne extends StatelessWidget {
   Widget build(BuildContext context) {
     MyDataController controller = Get.put(MyDataController());
     return Scaffold(
-      bottomNavigationBar: CustomButtonData(
-        title: "Continue",
+      bottomNavigationBar:
+       CustomButtonData(
+        title: "Continue".tr,
         controller: controller,
         onPressed: () {
           log("Gender is ${controller.isMale}");
@@ -27,9 +28,9 @@ class ScreenOne extends StatelessWidget {
         },
       ),
       appBar: AppBar(
-        title: const Text(
-          "MyData",
-          style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+        title:  Text(
+          "MyData".tr,
+          style: const TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
         surfaceTintColor: Colors.transparent,
@@ -49,7 +50,7 @@ class ScreenOne extends StatelessWidget {
                               controller.checkGenderMale();
                             },
                             icon: FontAwesomeIcons.mars,
-                            title: "Male",
+                            title: "Male".tr,
                             isGenderChecked: "male",
                           ),
                           CardGender(
@@ -58,7 +59,7 @@ class ScreenOne extends StatelessWidget {
                               controller.checkGenderFemale();
                             },
                             icon: FontAwesomeIcons.venus,
-                            title: "Female",
+                            title: "Female".tr,
                             isGenderChecked: "female",
                           ),
                         ],

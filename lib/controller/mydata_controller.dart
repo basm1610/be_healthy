@@ -1,7 +1,7 @@
 import 'dart:developer';
-
 import 'package:be_healthy/view/auth/login_screen.dart';
 import 'package:be_healthy/view/mydata/screen_two.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class MyDataController extends GetxController {
@@ -11,10 +11,10 @@ class MyDataController extends GetxController {
   int isHeight = 170;
   int isWeigth = 80;
   final List<String> items = [
-    'In active : no exercise',
-    'light : 1-3 days per weak',
-    'middle : 3-5 days per weak',
-    'heavy : 5-7 days per weak',
+    'Item1',
+    'Item2',
+    'Item3',
+    'Item4',
   ];
   bool isSelected = false;
   String? selectedValue;
@@ -49,11 +49,35 @@ class MyDataController extends GetxController {
   }
 
   goToScreenTwoData() {
-    Get.to(() => const ScreenTwo());
+    if (isMale != "") {
+      Get.to(() => const ScreenTwo());
+    } else {
+      Get.snackbar(
+        "attention",
+        "please complete this data of the Gender!",
+        duration: const Duration(seconds: 2),
+        icon: const Icon(
+          Icons.error_rounded,
+          size: 35,
+        ),
+      );
+    }
   }
 
   goTologin() {
-    Get.offAll(() => const LoginScreen());
+    if (selectedValue != null) {
+      Get.offAll(() => const LoginScreen());
+    } else {
+      Get.snackbar(
+        "attention",
+        "please complete this data physical activity!",
+        duration: const Duration(seconds: 2),
+        icon: const Icon(
+          Icons.error_rounded,
+          size: 35,
+        ),
+      );
+    }
   }
 
   @override

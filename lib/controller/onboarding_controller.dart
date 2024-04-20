@@ -11,7 +11,7 @@ class OnBoardingController extends GetxController {
   next() {
     currentPage++;
     if (currentPage > onBoardingList.length - 1) {
-      Get.to(() => const ScreenOne() );
+      Get.off(() => const ScreenOne() );
     } else {
       pageController.animateToPage(currentPage,
           duration: const Duration(milliseconds: 900), curve: Curves.easeInOut);

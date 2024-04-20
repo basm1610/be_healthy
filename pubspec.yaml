@@ -47,6 +47,9 @@ dependencies:
   ruler_scale_picker: ^0.1.0
   dropdown_button2: ^2.3.9
   font_awesome_flutter: ^10.7.0
+  shared_preferences: ^2.2.2
+  percent_indicator: ^4.2.3
+  flutter_rating_bar: ^4.0.1
 
 dev_dependencies:
   flutter_test:

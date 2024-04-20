@@ -1,19 +1,21 @@
 import 'package:be_healthy/model/onboarding_model.dart';
+import 'package:get/get.dart';
+
 
 List<OnBoardingModel> onBoardingList = [
   OnBoardingModel(
-    "Hi,there !",
+    "TitleOnBoardingOne".tr,
     "assets/images/image1.png",
-    "this application will help you to achieve better results",
+    "DescreptionOnBoardingOne".tr,
   ),
   OnBoardingModel(
-    "Motivation",
+    "TitleOnBoardingTwo".tr,
     "assets/images/image2.png",
-    "Through discipline comes freedom",
+    "DescreptionOnBoardingTwo".tr,
   ),
   OnBoardingModel(
-    "Be careful",
+    "TitleOnBoardingThree".tr,
     "assets/images/image3.png",
-    "We are here to take care of your health,activity and food",
+    "DescreptionOnBoardingThree".tr,
   ),
 ];
