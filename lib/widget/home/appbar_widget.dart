@@ -4,14 +4,18 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class AppBarWidgetHome extends StatelessWidget {
   final bool isHome ;
-  const AppBarWidgetHome({super.key,this.isHome = true});
+  final void Function()? onPressed;
+  const AppBarWidgetHome({super.key,this.isHome = true, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        isHome ? const FaIcon(FontAwesomeIcons.barsStaggered):Container(),
+        isHome ?  IconButton(
+          icon: const Icon(FontAwesomeIcons.barsStaggered),
+          onPressed: onPressed,
+          ):Container(),
         SizedBox(
             height: 50,
             width:isHome ? MediaQuery.of(context).size.width *  .75 :MediaQuery.of(context).size.width *   .92,

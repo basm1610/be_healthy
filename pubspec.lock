@@ -118,14 +118,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.1"
-  flutter_ruler_picker:
-    dependency: "direct main"
-    description:
-      name: flutter_ruler_picker
-      sha256: ce4069e6487a3cbc7bdbb18332977dd0ea99dd50c61a9162bc97f47bba182b99
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.6"
   flutter_svg:
     dependency: "direct main"
     description:
@@ -168,14 +160,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.1.0"
-  horizontal_picker:
-    dependency: "direct main"
-    description:
-      name: horizontal_picker
-      sha256: "0b7303c353d5b824046fd23f2f87bf9c08cc21725a3bdca2613b95843db836d4"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.2.0"
   http:
     dependency: "direct main"
     description:
@@ -344,22 +328,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.8"
-  ruler_scale_picker:
-    dependency: "direct main"
-    description:
-      name: ruler_scale_picker
-      sha256: dcbefd1c3ac5ba6a0e7e708c0cf01a03221903d7a98193775cd08a4072163218
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.1.0"
-  rulers:
-    dependency: "direct main"
-    description:
-      name: rulers
-      sha256: f305bddd59b3b3f4e9a314bd12a09d8efbc657e50866502a1216663baa0781b2
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.7"
   shared_preferences:
     dependency: "direct main"
     description:
@@ -453,22 +421,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
-  syncfusion_flutter_core:
-    dependency: transitive
-    description:
-      name: syncfusion_flutter_core
-      sha256: e8580e201c7197feac830b501889e877796a9fabbe20dcdbe90a981603939101
-      url: "https://pub.dev"
-    source: hosted
-    version: "24.2.4"
-  syncfusion_flutter_gauges:
-    dependency: "direct main"
-    description:
-      name: syncfusion_flutter_gauges
-      sha256: "07db7bf414a0d9b09a84678a191c47954c80788ec83fb227373dc2ff5fdfb2ca"
-      url: "https://pub.dev"
-    source: hosted
-    version: "24.2.4"
   term_glyph:
     dependency: transitive
     description:
