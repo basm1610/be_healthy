@@ -6,7 +6,8 @@ class AppBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return 
+    SizedBox(
       // color: Colors.red,
       height: 400,
       child: Stack(

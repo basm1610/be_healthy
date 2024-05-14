@@ -1,9 +1,11 @@
+import 'package:be_healthy/model/onboarding_model.dart';
 import 'package:be_healthy/view/strength_screen.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
 class WorkoutController extends GetxController {
   late PageController pageController;
+  // late CardWorkoutModel cardWorkoutModel;
   bool isFav = false;
   bool isFav2 = false;
 
@@ -13,8 +15,8 @@ class WorkoutController extends GetxController {
     "assets/images/Rectangle1.png",
   ];
 
-  goToPageStrength() {
-    Get.to(const StrengthScreen());
+  goToPageStrength(String cat) {
+    Get.to(const StrengthScreen(),arguments: {"cat" :cat});
   }
 
   isFavourite() {

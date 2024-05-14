@@ -1,4 +1,4 @@
-import 'package:be_healthy/controller/order_details_controller.dart';
+import 'package:be_healthy/controller/order/order_details_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

@@ -5,8 +5,9 @@ class CustomTextField extends StatelessWidget {
   final IconData? icon;
   final bool obscureText;
   final String hintText;
+  final TextInputType? keyboardType;
+  final String? Function(String?) valid;
   final void Function()? onPressed;
-  final bool isPasswordFiled;
   final TextEditingController? controller;
   const CustomTextField(
       {super.key,
@@ -14,13 +15,22 @@ class CustomTextField extends StatelessWidget {
       this.obscureText = false,
       required this.hintText,
       this.onPressed,
-      this.isPasswordFiled = false, this.controller});
+      this.controller,
+      this.keyboardType,
+      required this.valid});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      
+       scrollPadding: EdgeInsets.only(
+          bottom: MediaQuery.of(context).viewInsets.bottom),
+      keyboardType: keyboardType,
       controller: controller,
-      obscureText: obscureText,
+        autovalidateMode:
+      AutovalidateMode.onUserInteraction,
+      validator: valid,
+      obscureText: obscureText == false ? false : true,
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: GoogleFonts.quicksand(
@@ -31,13 +41,11 @@ class CustomTextField extends StatelessWidget {
         //   fontSize: 15,
         //   color: Color(0xffADADAD),
         // ),
-        suffixIcon: isPasswordFiled == true
-            ? IconButton(
-                color: const Color(0xffADADAD),
-                onPressed: onPressed,
-                icon: Icon(icon),
-              )
-            : null,
+        suffixIcon: IconButton(
+          color: const Color(0xffADADAD),
+          onPressed: onPressed,
+          icon: Icon(icon),
+        ),
       ),
     );
   }

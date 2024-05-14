@@ -24,7 +24,7 @@ class MainHomeScreen extends StatelessWidget {
             child: const Icon(Icons.add, color: Colors.white),
           ),
         ),
-        body: controller.listPage.elementAt(controller.currentIndex),
+        body: GetBuilder<MainHomeController>(builder: (controller)=>controller.listPage.elementAt(controller.currentIndex)),
       );
     });
   }

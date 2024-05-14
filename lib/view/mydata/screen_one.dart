@@ -21,7 +21,7 @@ class ScreenOne extends StatelessWidget {
         title: "Continue".tr,
         controller: controller,
         onPressed: () {
-          log("Gender is ${controller.isMale}");
+          log("Gender is ${controller.isGender}");
           log("select height is ${controller.isHeight}");
           log("select Age is ${controller.number}");
           controller.goToScreenTwoData();

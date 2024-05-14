@@ -1,6 +1,6 @@
-import 'package:be_healthy/controller/login_controller.dart';
+import 'package:be_healthy/controller/auth/login_controller.dart';
+import 'package:be_healthy/core/functions/input_validate.dart';
 import 'package:be_healthy/view/auth/signup_screen.dart';
-import 'package:be_healthy/view/main_home.dart';
 import 'package:be_healthy/widget/login/custom_button.dart';
 import 'package:be_healthy/widget/login/custom_stack.dart';
 import 'package:be_healthy/widget/login/custom_textfield.dart';
@@ -15,8 +15,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(LoginController());
     return Scaffold(
-      bottomNavigationBar: GetBuilder<LoginController>(
-        builder: (controller) {
+      bottomNavigationBar: GetBuilder<LoginController>(builder: (controller) {
         return Container(
           height: MediaQuery.of(context).size.height / 1.5,
           decoration: const BoxDecoration(
@@ -28,111 +27,130 @@ class LoginScreen extends StatelessWidget {
           ),
           child: Padding(
             padding: const EdgeInsets.all(25.0),
-            child: ListView(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Email".tr,
-                      style: const TextStyle(
-                          fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                    CustomTextField(
-                      hintText: "HintTextEmail".tr,
-                      //  controller: controller.username
-                    ),
-                    const SizedBox(
-                      height: 36,
-                    ),
-                    Text(
-                      "Password".tr,
-                      style: const TextStyle(
-                          fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                    CustomTextField(
-                      // controller: controller.password,
-                      hintText: "HintTextPassword".tr,
-                      icon: controller.isHiddenn
-                          ? Icons.remove_red_eye
-                          : Icons.visibility_off,
-                      isPasswordFiled: true,
-                      obscureText: controller.isHiddenn,
-                      onPressed: () {
-                        controller.obscurePassword();
-                      },
-                    ),
-                    const SizedBox(
-                      height: 18,
-                    ),
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: Text(
-                        "ForgetPassword".tr,
+            child: Form(
+              key: controller.formState,
+              child: ListView(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Email".tr,
                         style: const TextStyle(
-                            color: Color(0xffADADAD), fontSize: 12),
+                            fontSize: 18, fontWeight: FontWeight.bold),
                       ),
-                    ),
-                    const SizedBox(
-                      height: 36,
-                    ),
-                    GetBuilder<LoginController>(builder: (controller) {
-                      return CustomButton(
-                          text: "Login".tr,
-                          onPressed: () {
-                            Get.to(()=>MainHomeScreen());
-                          });
-                    }),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "TextUnderButtonLogin".tr,
-                          style: const TextStyle(fontSize: 12),
-                        ),
-                        GestureDetector(
+                      CustomTextField(
+                        controller: controller.email,
+                        keyboardType: TextInputType.emailAddress,
+                        hintText: "HintTextEmail".tr,
+                        //  controller: controller.username
+                        valid: (val) {
+                          return validInput(val!, 10, 50, "email");
+                        },
+                      ),
+                      const SizedBox(
+                        height: 36,
+                      ),
+                      Text(
+                        "Password".tr,
+                        style: const TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      CustomTextField(
+                        controller: controller.password,
+                        valid: (val) {
+                          return validInput(val!, 6, 50, "password");
+                        },
+                        // controller: controller.password,
+                        hintText: "HintTextPassword".tr,
+                        icon: controller.isHiddenn
+                            ? Icons.remove_red_eye
+                            : Icons.visibility_off,
+                        obscureText: controller.isHiddenn,
+                        onPressed: () {
+                          controller.obscurePassword();
+                        },
+                      ),
+                      const SizedBox(
+                        height: 18,
+                      ),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: GestureDetector(
                           onTap: () {
-                            Get.to(() => const SignUpScreen());
+                            controller.goToForgetPassword();
                           },
                           child: Text(
-                            "Here".tr,
+                            "ForgetPassword".tr,
                             style: const TextStyle(
-                              color: Color(0xffB547D1),
-                              fontWeight: FontWeight.bold,
-                            ),
+                                color: Color(0xffADADAD), fontSize: 12),
                           ),
-                        )
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 29,
-                    ),
-                    Row(
-                      children: [
-                        const Expanded(
-                            child: Divider(
-                          color: Color(0xffADADAD),
-                        )),
-                        Text(
-                          "CompleteTextUnderButtonLogin".tr,
-                          style: const TextStyle(color: Color(0xff707070)),
                         ),
-                        const Expanded(
-                            child: Divider(
-                          color: Color(0xffADADAD),
-                        )),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    const LoginWithSocial()
-                  ],
-                ),
-              ],
+                      ),
+                      const SizedBox(
+                        height: 36,
+                      ),
+                      GetBuilder<LoginController>(builder: (controller) {
+                        return controller.isLoading
+                            ? const Center(child: CircularProgressIndicator())
+                            : CustomButton(
+                                text: "Login".tr,
+                                onPressed: () {
+                                  // Get.to(()=>MainHomeScreen());
+                                  controller.sendPostRequest();
+                                });
+                      }),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "TextUnderButtonLogin".tr,
+                            style: const TextStyle(fontSize: 12),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              Get.to(() => const SignUpScreen());
+                            },
+                            child: Text(
+                              "Here".tr,
+                              style: const TextStyle(
+                                color: Color(0xffB547D1),
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 29,
+                      ),
+                      Row(
+                        children: [
+                          const Expanded(
+                              child: Divider(
+                            color: Color(0xffADADAD),
+                          )),
+                          Text(
+                            "CompleteTextUnderButtonLogin".tr,
+                            style: const TextStyle(color: Color(0xff707070)),
+                          ),
+                          const Expanded(
+                              child: Divider(
+                            color: Color(0xffADADAD),
+                          )),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      const LoginWithSocial()
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         );
@@ -142,4 +160,3 @@ class LoginScreen extends StatelessWidget {
     );
   }
 }
-

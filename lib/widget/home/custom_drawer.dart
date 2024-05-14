@@ -1,7 +1,9 @@
+import 'package:be_healthy/controller/home_controller.dart';
 import 'package:be_healthy/core/constant/color.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class CustomDrawer extends StatelessWidget {
+class CustomDrawer extends GetView<HomeController> {
   const CustomDrawer({
     super.key,
   });
@@ -14,23 +16,23 @@ class CustomDrawer extends StatelessWidget {
       child: ListView(
         padding: const EdgeInsets.all(0),
         children: [
-          const DrawerHeader(
-            decoration: BoxDecoration(
+          DrawerHeader(
+            decoration: const BoxDecoration(
               color: AppColor.primaryColor,
             ), //BoxDecoration
             child: UserAccountsDrawerHeader(
-              decoration: BoxDecoration(color: AppColor.primaryColor),
+              decoration: const BoxDecoration(color: AppColor.primaryColor),
               accountName: Text(
-                "Basm Mohamed",
-                style: TextStyle(fontSize: 14),
+                "${controller.name}",
+                style: const TextStyle(fontSize: 14),
               ),
-              accountEmail: Text("basm123@gmail.com"),
-              currentAccountPictureSize: Size.square(50),
+              accountEmail: Text("${controller.email}"),
+              currentAccountPictureSize: const Size.square(50),
               currentAccountPicture: CircleAvatar(
                 backgroundColor: AppColor.fourthColor,
                 child: Text(
-                  "B",
-                  style: TextStyle(fontSize: 30.0, color: Colors.white),
+                  "${controller.name}".substring(0, 1).toUpperCase(),
+                  style: const TextStyle(fontSize: 30.0, color: Colors.white),
                 ), //Text
               ), //circleAvatar
             ), //UserAccountDrawerHeader
@@ -44,28 +46,14 @@ class CustomDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.book),
-            title: const Text(' My Course '),
+            title: const Text(' Favourate '),
             onTap: () {
               Navigator.pop(context);
             },
           ),
           ListTile(
             leading: const Icon(Icons.workspace_premium),
-            title: const Text(' Go Premium '),
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.video_label),
-            title: const Text(' Saved Videos '),
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.edit),
-            title: const Text(' Edit Profile '),
+            title: const Text(' Popular '),
             onTap: () {
               Navigator.pop(context);
             },
@@ -74,7 +62,7 @@ class CustomDrawer extends StatelessWidget {
             leading: const Icon(Icons.logout),
             title: const Text('LogOut'),
             onTap: () {
-              Navigator.pop(context);
+              controller.logout();
             },
           ),
         ],

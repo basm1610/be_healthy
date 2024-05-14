@@ -1,5 +1,5 @@
 import 'package:be_healthy/controller/home_controller.dart';
-import 'package:be_healthy/core/constant/color.dart';
+
 import 'package:be_healthy/widget/home/appbar_widget.dart';
 import 'package:be_healthy/widget/home/banner_home.dart';
 import 'package:be_healthy/widget/home/card_calories.dart';
@@ -40,6 +40,13 @@ class HomeScreen extends StatelessWidget {
               const BannerHome(),
               const SizedBox(
                 height: 20,
+              ),
+              Text(
+                "WorkOut",
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               const ExerciseSection(),
               const SizedBox(

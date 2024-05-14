@@ -1,4 +1,6 @@
+import 'package:be_healthy/core/constant/color.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class CardWidget extends StatelessWidget {
@@ -9,6 +11,8 @@ class CardWidget extends StatelessWidget {
   final double percent;
   final double angle;
   final Color color;
+  final void Function()? onTapAddWater;
+  final bool isWater;
   const CardWidget(
       {super.key,
       required this.title,
@@ -17,7 +21,9 @@ class CardWidget extends StatelessWidget {
       required this.description,
       required this.color,
       required this.percent,
-      required this.angle});
+      required this.angle,
+      this.isWater = false,
+      this.onTapAddWater});
 
   @override
   Widget build(BuildContext context) {
@@ -27,16 +33,51 @@ class CardWidget extends StatelessWidget {
         surfaceTintColor: Colors.transparent,
         elevation: 10,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Text(
-              title,
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  title,
+                  style: const TextStyle(
+                      fontSize: 20, fontWeight: FontWeight.w600),
+                ),
+                isWater
+                    ? InkWell(
+                        onTap: onTapAddWater,
+                        child: const Stack(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(right: 15),
+                              child: Icon(
+                                FontAwesomeIcons.glassWater,
+                                size: 40,
+                                color: Color(0xff65ACE0),
+                              ),
+                            ),
+                            Positioned(
+                              bottom: 0,
+                              // right: 0,
+                              left: 7,
+                              child: Icon(
+                                Icons.add,
+                                size: 25,
+                                color: Colors.white,
+                              ),
+                            )
+                          ],
+                        ),
+                      )
+                    : Container()
+              ],
             ),
-            const SizedBox(
-              height: 15,
-            ),
+            isWater
+                ? Container()
+                : const SizedBox(
+                    height: 15,
+                  ),
             Row(
               children: [
                 Transform.rotate(
@@ -51,7 +92,8 @@ class CardWidget extends StatelessWidget {
                 ),
                 Text(
                   number,
-                  style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                  style: const TextStyle(
+                      fontSize: 20, fontWeight: FontWeight.w600),
                 ),
               ],
             ),

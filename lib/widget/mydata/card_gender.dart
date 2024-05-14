@@ -21,7 +21,7 @@ class CardGender extends GetView<MyDataController> {
     return GestureDetector(
       onTap: onTap,
       child: Card(
-        color: controller.isMale == isGenderChecked
+        color: controller.isGender == isGenderChecked
             ? const Color.fromARGB(255, 228, 120, 255)
             : Colors.white,
         surfaceTintColor: Colors.transparent,
@@ -34,7 +34,7 @@ class CardGender extends GetView<MyDataController> {
                 icon,
                 size: 80,
                 color: isGenderMale == false
-                    ? controller.isMale == isGenderChecked
+                    ? controller.isGender == isGenderChecked
                         ? const Color(0xffff00f5)
                         : const Color(0xffFF60F9)
                     : const Color(0xff3223DF),
@@ -45,7 +45,7 @@ class CardGender extends GetView<MyDataController> {
               Text(
                 title,
                 style: TextStyle(
-                    color: controller.isMale == isGenderChecked
+                    color: controller.isGender == isGenderChecked
                         ? Colors.white
                         : Colors.black,
                     fontSize: 24,

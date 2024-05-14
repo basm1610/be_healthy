@@ -1,4 +1,4 @@
-import 'package:be_healthy/controller/nutrition_controller.dart';
+import 'package:be_healthy/controller/nutrition/nutrition_controller.dart';
 import 'package:be_healthy/widget/nutrition/nutrition_body_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,8 +17,23 @@ class NutritionScreen extends StatelessWidget {
         ),
         automaticallyImplyLeading: false,
         centerTitle: true,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10),
+            child: IconButton(
+                onPressed: () {
+                  controller.goToSearch();
+                },
+                icon: const Icon(
+                  Icons.search,
+                  size: 30,
+                )),
+          )
+        ],
       ),
-      body: NutritionBodyWidget(controller: controller),
+      body: GetBuilder<NutritionController>(
+        builder: (controller) => const NutritionBodyWidget(),
+      ),
     );
   }
 }

@@ -25,6 +25,7 @@ class BottomAppBarWidget extends StatelessWidget {
                         : ButtonAppBarWidget(
                             onPressed: () {
                               controller.onChangePage(i);
+                              controller.update();
                             },
                             text: controller.titleBottomBar[i],
                             icon: controller.iconBottomBar[i],

@@ -10,34 +10,32 @@ class WorkOutCard extends StatelessWidget {
     this.onTap,
     required this.assetName,
     required this.title,
-     required this.color,
+    required this.color,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: GestureDetector(
-        onTap: onTap,
-        child: Card(
-          elevation: 5,
-          surfaceTintColor: Colors.transparent,
-          color: color,
-          child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              children: [
-                Image.asset(
-                  assetName,
-                  width: 80,
-                  height: 50,
-                ),
-                Text(
-                  title,
-                  style: const TextStyle(
-                      fontSize: 21, fontWeight: FontWeight.w500),
-                )
-              ],
-            ),
+    return GestureDetector(
+      onTap: onTap,
+      child: Card(
+        elevation: 5,
+        surfaceTintColor: Colors.transparent,
+        color: color,
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            children: [
+              Image.asset(
+                assetName,
+                width: 80,
+                height: 50,
+              ),
+              Text(
+                title,
+                style:
+                    const TextStyle(fontSize: 21, fontWeight: FontWeight.w500),
+              )
+            ],
           ),
         ),
       ),

@@ -1,21 +1,23 @@
-import 'package:be_healthy/model/order_meal_model.dart';
 import 'package:flutter/material.dart';
 
 class CardImage extends StatelessWidget {
+  final String image;
   const CardImage({
     super.key,
-    required this.orderMealModel,
+    required this.image,
   });
-
-  final OrderMealModel orderMealModel;
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(10.0),
-        child: Image.asset(
-          "${orderMealModel.image}",
+        child: Image.network(
+          image,
+          // "${AppLink.imageRestaurantFood}/${controller.restaurantModel.data?.image}"
+          width: 150,
+          height: 140,
+          fit: BoxFit.cover,
         ),
       ),
     );
