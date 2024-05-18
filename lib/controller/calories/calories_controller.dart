@@ -17,6 +17,8 @@ class CaloriesController extends GetxController {
   bool isLoading = false;
   double percentCalories = 0;
   double percentWater = 0;
+  late Color colorCaloris;
+   Color? colorWater;
 
   // function is used to get AllData
   getData() async {
@@ -35,11 +37,24 @@ class CaloriesController extends GetxController {
       var jsonResponse = jsonDecode(response.body);
       getDataModel = GetDataModel.fromJson(jsonResponse);
       data = "${getDataModel.data?.caloriesAdded}";
-      percentCalories = (jsonResponse['data']['caloriesAdded']) /
-          (jsonResponse['data']['caloriesNeeded']);
+      if ((jsonResponse['data']['caloriesAdded']) >=
+          (jsonResponse['data']['caloriesNeeded'])) {
+        percentCalories = 1.0;
+        colorCaloris = Colors.red;
+      } else {
+        percentCalories = (jsonResponse['data']['caloriesAdded']) /
+            (jsonResponse['data']['caloriesNeeded']);
+      }
 
-      percentWater = (jsonResponse['data']['waterQuantity']) /
+      if ((jsonResponse['data']['waterQuantity']) >=
+          (jsonResponse['data']['waterNeeded'])) {
+        percentWater = 1.0;
+        colorWater = Colors.red;
+      }else{
+        percentWater = (jsonResponse['data']['waterQuantity']) /
           (jsonResponse['data']['waterNeeded']);
+      }
+      
       log("Data: $jsonResponse");
       log("percentWater: $percentCalories");
     }

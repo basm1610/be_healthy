@@ -3,42 +3,17 @@ import 'dart:developer';
 import 'package:be_healthy/core/constant/link_api.dart';
 import 'package:be_healthy/core/services/myservices.dart';
 import 'package:be_healthy/model/favourite_model.dart';
-import 'package:be_healthy/model/popular_model.dart';
-import 'package:be_healthy/model/video_data_model.dart';
-import 'package:be_healthy/view/strength_screen.dart';
 import 'package:get/get.dart';
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-class WorkoutController extends GetxController {
+class FavouriteController extends GetxController {
   Map isFavorite = {};
-  late PageController pageController;
-  // late CardWorkoutModel cardWorkoutModel;
   MyServices myServices = Get.find();
-  bool isFav = false;
-  bool isFav2 = false;
   bool isLoading = false;
-  late PopularModel popularModel = PopularModel();
+  late FavouriteModel favouriteModel = FavouriteModel();
 
   setFavorite(id, val) {
     isFavorite[id] = val;
-    update();
-  }
-
-  List<String> images = [
-    "assets/images/Rectangle1.png",
-    "assets/images/Rectangle3.png",
-    "assets/images/Rectangle1.png",
-  ];
-
-  goToPageStrength(String cat) {
-    Get.to(const StrengthScreen(), arguments: {"cat": cat});
-  }
-
-  isFavourite() {
-    isFav = !isFav;
-    isFav2 = !isFav2;
-
     update();
   }
 
@@ -46,7 +21,7 @@ class WorkoutController extends GetxController {
     isLoading = true;
     update();
     final response = await http.get(
-      Uri.parse(AppLink.pouplar),
+      Uri.parse(AppLink.favourite),
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
@@ -56,20 +31,41 @@ class WorkoutController extends GetxController {
     );
     if (response.statusCode == 200 || response.statusCode == 201) {
       var jsonResponse = jsonDecode(response.body);
-      popularModel = PopularModel.fromJson(jsonResponse);
+      favouriteModel = FavouriteModel.fromJson(jsonResponse);
       log("Data: $jsonResponse");
     }
     isLoading = false;
     update();
   }
 
+  deleteFav(var itemId) async {
+    // getData();
+    isLoading = true;
+    update();
+    final response = await http.delete(
+      Uri.parse("${AppLink.deleteFavourite}${itemId.toString()}"),
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization':
+            'Bearer ${myServices.sharedPreferences.getString("token")}',
+      },
+    );
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      getData();
+      var jsonResponse = jsonDecode(response.body);
+      favouriteModel = FavouriteModel.fromJson(jsonResponse);
+      log("Data: $jsonResponse['message]");
+      Get.snackbar("Success", "${jsonResponse["message"]}");
+    }
+    // getData();
+    isLoading = false;
+    update();
+  }
+
   @override
   void onInit() {
-    update();
     getData();
     super.onInit();
-    pageController = PageController(
-      viewportFraction: .87,
-    );
   }
 }

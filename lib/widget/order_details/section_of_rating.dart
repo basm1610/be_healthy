@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:be_healthy/controller/order/order_details_controller.dart';
 import 'package:be_healthy/core/constant/color.dart';
 import 'package:be_healthy/widget/order_details/card_rating.dart';

@@ -8,7 +8,7 @@ class ExerciseSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    HomeController controller = Get.put(HomeController());
+    Get.put(HomeController());
     return GetBuilder<HomeController>(
         builder: (controller) => Row(
               children: [
@@ -31,10 +31,10 @@ class ExerciseSection extends StatelessWidget {
                 //   ),
                 // ),
 
-                Container(
+                SizedBox(
                   // color: Colors.amber,
                   height: 100,
-                  width: MediaQuery.of(context).size.width * .9,
+                  width: MediaQuery.of(context).size.width * .91,
                   child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: controller.workOutModel.data?.length ?? 0,
@@ -50,15 +50,15 @@ class ExerciseSection extends StatelessWidget {
                               },
                               child: Padding(
                                 padding:
-                                    const EdgeInsets.symmetric(horizontal: 10),
+                                    const EdgeInsets.symmetric(horizontal: 5),
                                 child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(10),
+                                  borderRadius: BorderRadius.circular(15),
                                   child: Image.network(
                                     "${controller.workOutModel.data?[index].image}",
                                     // controller.imagesGym[index],
                                     // height: 100,
-                                    width: 100,
-                                    // fit: BoxFit.fitWidth,
+                                    width: 150,
+                                    fit: BoxFit.cover,
                                   ),
                                 ),
                               ),

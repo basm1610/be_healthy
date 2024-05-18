@@ -35,4 +35,8 @@ class AppLink {
 
   static const String trainingDetails ='$linkServiceName/api/v1/training/';
   static const String createReview ='$linkServiceName/api/v1/reviews';
+  static const String favourite ='$linkServiceName/api/v1/wishlist';
+    static const String pouplar ='$linkServiceName/api/v1/training/pouplar';
+  static const String addFavorite ='$linkServiceName/api/v1/wishlist';
+  static const String deleteFavourite ='$linkServiceName/api/v1/wishlist/';
 }

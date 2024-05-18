@@ -1,59 +1,39 @@
+import 'package:be_healthy/controller/test/step_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:pedometer/pedometer.dart';
 
-class StepsCount extends StatefulWidget {
-  const StepsCount({super.key});
+// ignore: must_be_immutable
+class StepsCount extends StatelessWidget {
+  StepsCount({super.key});
 
-  @override
-  State<StepsCount> createState() => _StepsCountState();
-}
-
-class _StepsCountState extends State<StepsCount> {
-  String _stepCountValue = '0';
-  String totalCount = "0";
-  late Stream<StepCount> stepCountStream;
   Pedometer pedometer = Pedometer();
+
   // StepCount? stepCount;
-
-  @override
-  void initState() {
-    super.initState();
-    _startListening();
-  }
-
-  void _startListening() {
-    pedometer = Pedometer();
-    totalCount = Pedometer.stepCountStream.toString();
-    Pedometer.stepCountStream.listen((StepCount event) {
-      setState(() {
-        _stepCountValue = '${event.steps}';
-      });
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
+    StepController controller = Get.put(StepController());
     return Scaffold(
       appBar: AppBar(
         title: Text('Step Counter'),
       ),
-      body: Center(
+      body: GetBuilder<StepController>(builder: (controller)=>Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'total Step Count: ',
+              'total Step Count: ${controller.totalCount}',
             ),
             Text(
               'Step Count:',
             ),
             Text(
-              '$_stepCountValue',
+              controller.stepCountValue.toString(),
               style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
         ),
-      ),
+      )),
     );
   }
 }

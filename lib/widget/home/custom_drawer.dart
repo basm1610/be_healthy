@@ -46,16 +46,16 @@ class CustomDrawer extends GetView<HomeController> {
           ),
           ListTile(
             leading: const Icon(Icons.book),
-            title: const Text(' Favourate '),
+            title: const Text(' Favorite '),
             onTap: () {
-              Navigator.pop(context);
+              controller.goToFavouriteScreen();
             },
           ),
           ListTile(
             leading: const Icon(Icons.workspace_premium),
             title: const Text(' Popular '),
             onTap: () {
-              Navigator.pop(context);
+              controller.goToPopularScreen();
             },
           ),
           ListTile(

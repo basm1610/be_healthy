@@ -1,6 +1,4 @@
-import 'package:be_healthy/core/constant/routs_name.dart';
 import 'package:be_healthy/view/account_screen.dart';
-import 'package:be_healthy/view/calories._screen.dart';
 import 'package:be_healthy/view/home_screen.dart';
 import 'package:be_healthy/view/nutrition/nutrition.dart';
 import 'package:be_healthy/view/workout_screen.dart';
@@ -16,7 +14,7 @@ class MainHomeController extends GetxController {
     // Get.toNamed(AppRouts.calories),
     // const CaloriesScreen(),
     const NutritionScreen(),
-    const WorkOutScreen(),
+     const WorkOutScreen(),
     const AccountScreen(),
   ];
   List titleBottomBar = [

@@ -29,7 +29,8 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         drawer: const CustomDrawer(), //Drawer,
-        body: Padding(
+        body: 
+        Padding(
           padding:
               const EdgeInsets.only(top: 10, left: 10, right: 10, bottom: 10),
           child: ListView(

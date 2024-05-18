@@ -1,7 +1,5 @@
-
 import 'package:be_healthy/controller/order/order_controller.dart';
 import 'package:be_healthy/core/constant/color.dart';
-import 'package:be_healthy/core/constant/link_api.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -29,7 +27,8 @@ class OrderCardWidget extends StatelessWidget {
                 return GestureDetector(
                   onTap: () {
                     // log("${controller.data[index].title}");
-                    controller.goToOrderDetails("${controller.foodCategoryModel.data![index].sId}");
+                    controller.goToOrderDetails(
+                        "${controller.foodCategoryModel.data![index].sId}");
                   },
                   child: Column(
                     children: [
@@ -39,6 +38,7 @@ class OrderCardWidget extends StatelessWidget {
                           image: NetworkImage(
                             "${controller.foodCategoryModel.data![index].image}",
                           ),
+                          color: Colors.black,
                           fit: BoxFit.fill,
                           width: 165,
                           height: 150,

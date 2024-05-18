@@ -9,6 +9,7 @@ import 'package:be_healthy/view/auth/forgetpassword/verification_screen.dart';
 import 'package:be_healthy/view/auth/login_screen.dart';
 import 'package:be_healthy/view/auth/signup_screen.dart';
 import 'package:be_healthy/view/calories._screen.dart';
+import 'package:be_healthy/view/favourite_screen.dart';
 import 'package:be_healthy/view/main_home.dart';
 import 'package:be_healthy/view/mydata/screen_one.dart';
 import 'package:be_healthy/view/mydata/screen_two.dart';
@@ -18,6 +19,7 @@ import 'package:be_healthy/view/nutrition/search_screen.dart';
 import 'package:be_healthy/view/onboarding/onboarding_screen.dart';
 import 'package:be_healthy/view/order/order_details_screen.dart';
 import 'package:be_healthy/view/order/order_screen.dart';
+import 'package:be_healthy/view/popular_screen.dart';
 import 'package:be_healthy/view/splash_screen.dart';
 import 'package:be_healthy/view/video_screen.dart';
 import 'package:get/get.dart';
@@ -44,6 +46,8 @@ List<GetPage<dynamic>>? routs=[
   GetPage(name: AppRouts.nutritionDetails, page: ()=> const NutritionDetailsScreen()),
   GetPage(name: AppRouts.videoScreen, page: ()=> const VideoScreen()),
   GetPage(name: AppRouts.nutrition, page: ()=> const NutritionScreen()),
+  GetPage(name: AppRouts.favourite, page: ()=> const FavouriteScreen()),
+  GetPage(name: AppRouts.popular, page: ()=> const PopularScreen()),
   
 
 ];

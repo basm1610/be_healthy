@@ -25,5 +25,7 @@ class AppRouts{
   static const String nutritionDetails = "/nutritionDetails";
   static const String nutrition = "/nutrition";
   static const String videoScreen = "/videoScreen";
+  static const String favourite = "/favourite";
+  static const String popular = "/popular";
   
 }

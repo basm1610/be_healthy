@@ -1,9 +1,12 @@
 import 'dart:convert';
 import 'dart:developer';
 
+import 'package:be_healthy/core/class/status_request.dart';
 import 'package:be_healthy/core/constant/routs_name.dart';
+import 'package:be_healthy/core/functions/check_internet.dart';
 import 'package:be_healthy/core/services/myservices.dart';
 import 'package:be_healthy/model/food_category_model.dart';
+import 'package:be_healthy/model/popular_model.dart';
 import 'package:be_healthy/view/calories._screen.dart';
 import 'package:be_healthy/view/workout_screen.dart';
 import 'package:get/get.dart';
@@ -17,29 +20,18 @@ class HomeController extends GetxController {
   MyServices myServices = Get.find();
   WorkOutModel workOutModel = WorkOutModel();
   FoodCategoryModel foodCategoryModel = FoodCategoryModel();
+  StatusRequest statusRequest = StatusRequest.none;
 
   bool isLoading = false;
 
   var name;
   var email;
 
-  List<String> images = [
-    "assets/images/food3.png",
-    "assets/images/food2.png",
-    "assets/images/food1.png",
-  ];
-
-  List<String> imagesGym = [
-    "assets/images/bed.png",
-    "assets/images/bulb.png",
-    "assets/images/chair.png",
-    "assets/images/couch.png",
-    "assets/images/rec.png",
-  ];
-  List<String> title = ["tahina salad", "Sauce Tonkatsu ", "meat"];
-
   goToCaliorsScreen() {
     Get.to(const CaloriesScreen())?.then((value) => update());
+  }
+  goToPopularScreen() {
+    Get.toNamed(AppRouts.popular);
   }
 
   goToWorkOutScreen() {
@@ -49,8 +41,13 @@ class HomeController extends GetxController {
   goToOrderScreen() {
     Get.toNamed(AppRouts.order);
   }
-   goToNutritionScreen() {
+
+  goToNutritionScreen() {
     Get.toNamed(AppRouts.nutrition);
+  }
+
+  goToFavouriteScreen() {
+    Get.toNamed(AppRouts.favourite);
   }
 
   logout() {
@@ -83,12 +80,15 @@ class HomeController extends GetxController {
     update();
   }
 
+ 
+
   @override
-  void onInit() {
+  void onInit() async {
     name = "${myServices.sharedPreferences.getString("name")}";
     email = "${myServices.sharedPreferences.getString("email")}";
     getData();
     getNutritionData();
+
     super.onInit();
     pageController = PageController(
       viewportFraction: .87,

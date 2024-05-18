@@ -1,20 +1,27 @@
-import 'package:be_healthy/controller/workout_controller.dart';
+import 'package:be_healthy/controller/home_controller.dart';
+import 'package:be_healthy/controller/popular_controller.dart';
+import 'package:be_healthy/core/constant/color.dart';
 import 'package:be_healthy/core/constant/link_api.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SectionFavourite extends StatelessWidget {
-  const SectionFavourite({
-    super.key,
-  });
+class PopularScreen extends StatelessWidget {
+  const PopularScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // color: Colors.red,
-      height: 290,
-      // width: 250,
-      child: GetBuilder<WorkoutController>(
+    Get.put(PopularController());
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "Popular videos",
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
+        backgroundColor: AppColor.primaryColor,
+        iconTheme: IconThemeData(color: Colors.white),
+      ),
+      body: GetBuilder<PopularController>(
           builder: (controller) => ListView.builder(
               // padEnds: false,
               itemCount: controller.popularModel.data?.length ?? 0,
@@ -27,12 +34,13 @@ class SectionFavourite extends StatelessWidget {
               // },
               itemBuilder: (context, pagePosition) {
                 return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                   child: Stack(
                     children: [
                       Container(
                         // color: Colors.amber,
-                        margin: const EdgeInsets.only(right: 10),
+                        // margin: const EdgeInsets.only(right: 10),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(15),
                           child: Image.network(

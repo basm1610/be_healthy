@@ -7,9 +7,10 @@ class CardCalories extends StatelessWidget {
   final String caloriesChange;
   final String totalCalories;
   final double percent;
+  final Color colors;
 
   const CardCalories(
-      {super.key, required this.caloriesChange, required this.totalCalories, required this.percent});
+      {super.key, required this.caloriesChange, required this.totalCalories, required this.percent,required this.colors});
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +46,7 @@ class CardCalories extends StatelessWidget {
                 ),
               ],
             ),
-            progressColor: AppColor.primaryColor,
+            progressColor: colors,
             footer: Text(
               "$caloriesChange left",
               style: const TextStyle(fontSize: 18, color: Color(0xff646363)),

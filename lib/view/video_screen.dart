@@ -1,5 +1,4 @@
 import 'package:be_healthy/controller/video_controller.dart';
-import 'package:be_healthy/core/constant/link_api.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
@@ -16,10 +15,30 @@ class VideoScreen extends StatelessWidget {
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Icon(
-              Icons.favorite_border,
-              size: 25,
-            ),
+            child: GetBuilder<VideoController>(
+                builder: (controller) => IconButton(
+                      onPressed: () {
+                        if (controller.isFavorite[
+                                controller.videoDataModel.data?.sId] ==
+                            "1") {
+                          controller.setFavorite(
+                              controller.videoDataModel.data?.sId, "0");
+                        } else {
+                          controller.setFavorite(
+                              controller.videoDataModel.data?.sId, "1");
+                          controller.addFavorite("${controller.videoDataModel.data?.sId}");
+                        }
+                      },
+                      icon: Icon(
+                        controller.isFavorite[
+                                    controller.videoDataModel.data?.sId] ==
+                                "1"
+                            ? Icons.favorite
+                            : Icons.favorite_border,
+                        size: 30,
+                        color: Colors.red,
+                      ),
+                    )),
           )
         ],
       ),
@@ -37,7 +56,7 @@ class VideoScreen extends StatelessWidget {
                     children: [
                       Text(
                         "${controller.videoDataModel.data?.name}",
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                       ClipRRect(
@@ -85,7 +104,7 @@ class VideoScreen extends StatelessWidget {
                               ),
                             ],
                           ),
-                          Row(
+                          const Row(
                             children: [
                               Icon(
                                 Icons.fireplace_sharp,
@@ -103,16 +122,16 @@ class VideoScreen extends StatelessWidget {
                           ),
                           Row(
                             children: [
-                              Icon(
+                              const Icon(
                                 Icons.fitness_center_rounded,
                                 size: 20,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 5,
                               ),
                               Text(
                                 "${controller.videoDataModel.data?.level}",
-                                style: TextStyle(fontSize: 18),
+                                style: const TextStyle(fontSize: 18),
                               ),
                             ],
                           ),

@@ -1,4 +1,5 @@
 import 'package:be_healthy/controller/auth/login_controller.dart';
+import 'package:be_healthy/core/class/handling_data_view.dart';
 import 'package:be_healthy/core/functions/input_validate.dart';
 import 'package:be_healthy/view/auth/signup_screen.dart';
 import 'package:be_healthy/widget/login/custom_button.dart';
@@ -91,14 +92,17 @@ class LoginScreen extends StatelessWidget {
                         height: 36,
                       ),
                       GetBuilder<LoginController>(builder: (controller) {
-                        return controller.isLoading
-                            ? const Center(child: CircularProgressIndicator())
-                            : CustomButton(
-                                text: "Login".tr,
-                                onPressed: () {
-                                  // Get.to(()=>MainHomeScreen());
-                                  controller.sendPostRequest();
-                                });
+                        return 
+                        HandlingDataRequest(statusRequest: controller.statusRequest!, widget: CustomButton(text: "Login",onPressed: (){controller.sendPostRequest();},))
+                        // controller.isLoading
+                        //     ? const Center(child: CircularProgressIndicator())
+                        //     : CustomButton(
+                        //         text: "Login".tr,
+                        //         onPressed: () {
+                        //           // Get.to(()=>MainHomeScreen());
+                        //           controller.sendPostRequest();
+                        //         })
+                        ;
                       }),
                       const SizedBox(
                         height: 20,

@@ -1,5 +1,4 @@
 import 'package:be_healthy/controller/nutrition/nutrition_details_controller.dart';
-import 'package:be_healthy/core/constant/link_api.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -28,7 +27,7 @@ class AppBarNutritionDetails extends StatelessWidget {
                   backgroundColor: Colors.transparent,
                   radius: 30,
                   backgroundImage: NetworkImage(
-                      "${controller.image}"),
+                      controller.image),
                 )
               ],
             ));

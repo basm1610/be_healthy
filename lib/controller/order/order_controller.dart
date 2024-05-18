@@ -1,10 +1,8 @@
 import 'dart:convert';
 import 'dart:developer';
-
 import 'package:be_healthy/core/constant/link_api.dart';
 import 'package:be_healthy/core/constant/routs_name.dart';
 import 'package:be_healthy/model/food_category_model.dart';
-import 'package:be_healthy/view/order/order_details_screen.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 

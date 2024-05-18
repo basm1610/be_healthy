@@ -35,7 +35,7 @@ class Data {
       this.level});
 
   Data.fromJson(Map<String, dynamic> json) {
-    sId = json['_id'];
+    sId = json['_id'] as String;
     name = json['name'];
     image = json['image'];
     description = json['description'];

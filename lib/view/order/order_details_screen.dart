@@ -1,11 +1,11 @@
 import 'package:be_healthy/controller/order/order_details_controller.dart';
 import 'package:be_healthy/core/constant/color.dart';
-import 'package:be_healthy/core/constant/link_api.dart';
 import 'package:be_healthy/widget/order_details/card_image.dart';
 import 'package:be_healthy/widget/order_details/description_card_image.dart';
 import 'package:be_healthy/widget/order_details/rating_product.dart';
 import 'package:be_healthy/widget/order_details/section_of_rating.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
@@ -94,7 +94,10 @@ class OrderDetailsScreen extends StatelessWidget {
                           name: "Copy BeHealthy to get 10% discount",
                           color: const Color(0xff2E9C13),
                           onPressed: () {
-                            controller.showAlert();
+                            // controller.showAlert();
+                             Clipboard.setData(ClipboardData(text: "BE-HEALTHY"));
+                            Get.snackbar('Copied!', 'Text copied to clipboard.', 
+                              snackPosition: SnackPosition.BOTTOM);
                           },
                           isTrue: false,
                         ),

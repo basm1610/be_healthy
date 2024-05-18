@@ -1,6 +1,5 @@
 import 'package:be_healthy/controller/order/order_controller.dart';
 import 'package:be_healthy/core/constant/color.dart';
-import 'package:be_healthy/widget/home/appbar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,8 +14,8 @@ class OrderScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColor.primaryColor,
-        iconTheme: IconThemeData(color: Colors.white),
-        title: Text(
+        iconTheme: const IconThemeData(color: Colors.white),
+        title: const Text(
           "Resturants",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),

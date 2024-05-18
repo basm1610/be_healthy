@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:be_healthy/controller/calories/calories_controller.dart';
 import 'package:be_healthy/core/constant/color.dart';
 import 'package:be_healthy/widget/calories/card_calories.dart';
@@ -48,6 +47,7 @@ class CaloriesScreen extends StatelessWidget {
                         height: 20,
                       ),
                       CardCalories(
+                        colors: controller.colorCaloris == Colors.red ? controller.colorCaloris :AppColor.primaryColor ,
                         caloriesChange: controller.data,
                         totalCalories:
                             "${controller.getDataModel.data?.caloriesNeeded}",
@@ -78,7 +78,7 @@ class CaloriesScreen extends StatelessWidget {
                         icon: Icons.water_drop,
                         description:
                             "goal ${controller.getDataModel.data?.waterNeeded} ml",
-                        color: const Color(0xff65ACE0),
+                        color: controller.colorWater == Colors.red? controller.colorWater!:const Color(0xff65ACE0),
                         percent: controller.percentWater,
                         onTapAddWater: () {
                           controller.update();

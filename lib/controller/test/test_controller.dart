@@ -1,15 +1,10 @@
 import 'dart:developer';
-
-import 'package:be_healthy/core/constant/link_api.dart';
 import 'package:be_healthy/model/test_model.dart';
-import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:pod_player/pod_player.dart';
 import 'dart:convert';
-import 'package:video_player/video_player.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class TestController extends GetxController {
   bool isLoading = false;
@@ -29,8 +24,8 @@ class TestController extends GetxController {
    PodPlayerController? podPlayerController;
 
   void loading() {
-    Get.defaultDialog(content: Center(child: CircularProgressIndicator()));
-    Future.delayed(Duration(seconds: 1));
+    Get.defaultDialog(content: const Center(child: CircularProgressIndicator()));
+    Future.delayed(const Duration(seconds: 1));
     Get.back();
 
     // setLoading(false);
