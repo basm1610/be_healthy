@@ -9,6 +9,7 @@ import 'package:be_healthy/view/auth/forgetpassword/verification_screen.dart';
 import 'package:be_healthy/view/auth/login_screen.dart';
 import 'package:be_healthy/view/auth/signup_screen.dart';
 import 'package:be_healthy/view/calories._screen.dart';
+import 'package:be_healthy/view/contact_us_screen.dart';
 import 'package:be_healthy/view/favourite_screen.dart';
 import 'package:be_healthy/view/main_home.dart';
 import 'package:be_healthy/view/mydata/screen_one.dart';
@@ -48,6 +49,7 @@ List<GetPage<dynamic>>? routs=[
   GetPage(name: AppRouts.nutrition, page: ()=> const NutritionScreen()),
   GetPage(name: AppRouts.favourite, page: ()=> const FavouriteScreen()),
   GetPage(name: AppRouts.popular, page: ()=> const PopularScreen()),
+  GetPage(name: AppRouts.contactus, page: ()=> const ContactUs()),
   
 
 ];

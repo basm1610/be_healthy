@@ -6,12 +6,14 @@ class AppImageAsset{
   static const String server = "$rootLottie/server.json";
   // static const String forgotPassword = "$rootLottie/forgot-password.json";
   static const String success = "$rootLottie/success.json";
+  static const String contactUs = "$rootLottie/contact-us.json";
 
   /////////////////////////////images///////////////////////////
   static const String rootImages = "assets/images";
   static const onBoardingOne ="assets/images/one.png";
   static const onBoardingTwo ="assets/images/two.png";
   static const onBoardingThree ="assets/images/three.png";
+  static const contactUsImage ="assets/images/Contact-us.png";
 
 
 

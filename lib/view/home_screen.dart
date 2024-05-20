@@ -7,6 +7,7 @@ import 'package:be_healthy/widget/home/custom_drawer.dart';
 import 'package:be_healthy/widget/home/exercise_section.dart';
 import 'package:be_healthy/widget/home/nutrition_section.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -18,26 +19,44 @@ class HomeScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          // systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: Colors.black),
-          automaticallyImplyLeading: false,
-          title: Builder(
-            builder: (context) => AppBarWidgetHome(
-                isHome: true,
+            backgroundColor: Colors.white,
+            title: Text(
+              "Be Healthy",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold),
+            ),
+            // iconTheme: IconThemeData(color: Colors.black),
+            // // systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: Colors.black),
+            // automaticallyImplyLeading: false,
+            // title: Builder(
+            //   builder: (context) => AppBarWidgetHome(
+            //       isHome: true,
+            //       onPressed: () {
+            //         Scaffold.of(context).openDrawer();
+            //       }),
+            // ),
+            leading: Builder(
+              builder: (context) => IconButton(
                 onPressed: () {
                   Scaffold.of(context).openDrawer();
-                }),
-          ),
-        ),
+                },
+                icon: Icon(
+                  FontAwesomeIcons.barsStaggered,
+                  color: Colors.black,
+                ),
+              ),
+            )),
         drawer: const CustomDrawer(), //Drawer,
-        body: 
-        Padding(
+        body: Padding(
           padding:
               const EdgeInsets.only(top: 10, left: 10, right: 10, bottom: 10),
           child: ListView(
             children: [
-              const SizedBox(
-                height: 30,
-              ),
+              // const SizedBox(
+              //   height: 30,
+              // ),
               const BannerHome(),
               const SizedBox(
                 height: 20,

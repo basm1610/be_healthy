@@ -49,6 +49,9 @@ class HomeController extends GetxController {
   goToFavouriteScreen() {
     Get.toNamed(AppRouts.favourite);
   }
+  goToContactUsScreen() {
+    Get.toNamed(AppRouts.contactus);
+  }
 
   logout() {
     myServices.sharedPreferences.remove("step");

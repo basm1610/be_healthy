@@ -17,9 +17,9 @@ class FavouriteScreen extends StatelessWidget {
           "My Favorite",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
-        centerTitle: true,
-        backgroundColor: AppColor.primaryColor,
-        iconTheme: IconThemeData(color: Colors.white),
+        // centerTitle: true,
+        // backgroundColor: AppColor.primaryColor,
+        // iconTheme: IconThemeData(color: Colors.white),
       ),
       body: GetBuilder<FavouriteController>(
           builder: (controller) => ListView.builder(

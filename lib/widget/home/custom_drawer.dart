@@ -39,28 +39,56 @@ class CustomDrawer extends GetView<HomeController> {
           ), //DrawerHeader
           ListTile(
             leading: const Icon(Icons.person),
-            title: const Text(' My Profile '),
+            title: const Text(
+              ' My Profile ',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            iconColor: AppColor.grey2,
             onTap: () {
               Navigator.pop(context);
             },
           ),
           ListTile(
-            leading: const Icon(Icons.book),
-            title: const Text(' Favorite '),
+            leading: const Icon(Icons.favorite),
+            iconColor: AppColor.grey2,
+            title: const Text(
+              ' Favorite ',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
             onTap: () {
               controller.goToFavouriteScreen();
             },
           ),
           ListTile(
             leading: const Icon(Icons.workspace_premium),
-            title: const Text(' Popular '),
+            iconColor: AppColor.grey2,
+            title: const Text(
+              ' Popular ',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
             onTap: () {
               controller.goToPopularScreen();
             },
           ),
           ListTile(
+            leading: const Icon(Icons.contact_support),
+            iconColor: AppColor.grey2,
+            title: const Text(
+              ' Contact Us ',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            // titleTextStyle: TextStyle(fontWeight: FontWeight.bold),
+            onTap: () {
+              controller.goToContactUsScreen();
+            },
+          ),
+          ListTile(
             leading: const Icon(Icons.logout),
-            title: const Text('LogOut'),
+            iconColor: AppColor.grey2,
+            title: const Text(
+              'LogOut',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
             onTap: () {
               controller.logout();
             },

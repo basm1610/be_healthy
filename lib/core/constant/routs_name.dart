@@ -27,5 +27,6 @@ class AppRouts{
   static const String videoScreen = "/videoScreen";
   static const String favourite = "/favourite";
   static const String popular = "/popular";
+  static const String contactus = "/contactus";
   
 }

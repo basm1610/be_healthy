@@ -17,7 +17,7 @@ class CaloriesController extends GetxController {
   bool isLoading = false;
   double percentCalories = 0;
   double percentWater = 0;
-  late Color colorCaloris;
+   Color colorCaloris = Colors.red;
    Color? colorWater;
 
   // function is used to get AllData
@@ -40,7 +40,7 @@ class CaloriesController extends GetxController {
       if ((jsonResponse['data']['caloriesAdded']) >=
           (jsonResponse['data']['caloriesNeeded'])) {
         percentCalories = 1.0;
-        colorCaloris = Colors.red;
+        colorCaloris ;
       } else {
         percentCalories = (jsonResponse['data']['caloriesAdded']) /
             (jsonResponse['data']['caloriesNeeded']);

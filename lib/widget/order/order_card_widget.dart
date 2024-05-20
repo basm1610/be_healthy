@@ -38,7 +38,7 @@ class OrderCardWidget extends StatelessWidget {
                           image: NetworkImage(
                             "${controller.foodCategoryModel.data![index].image}",
                           ),
-                          color: Colors.black,
+                          // color: Colors.black,
                           fit: BoxFit.fill,
                           width: 165,
                           height: 150,

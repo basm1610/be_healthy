@@ -48,6 +48,14 @@ class MyApp extends StatelessWidget {
       // locale: DevicePreview.locale(context),
       // builder: DevicePreview.appBuilder,
       theme: ThemeData(
+          appBarTheme: AppBarTheme(
+            backgroundColor: AppColor.primaryColor,
+              centerTitle: true,
+              titleTextStyle: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+              ),
+              iconTheme: IconThemeData(color: Colors.white)),
           useMaterial3: true,
           // textTheme: GoogleFonts.interTextTheme(),
           scaffoldBackgroundColor: Colors.white,
@@ -59,19 +67,19 @@ class MyApp extends StatelessWidget {
       translations: MyTranslation(),
       initialBinding: MyBinding(),
       // home:
-          // StepsCount()
-          // WorkOutScreen(),
-          // MainHomeScreen(),
-          //  LoginScreen(),
-          // NutritionScreen()
-          // const ScreenOne()
-          // ResetPasswordScreen()
-          // OrderScreen(),
-          // OnBoardingScreen()
-          // SuccessResetPasswordScreen()
-          // const SplashScreen(),
-          // CaloriesScreen()
-          // TestScreen(),
+      // StepsCount()
+      // WorkOutScreen(),
+      // MainHomeScreen(),
+      //  LoginScreen(),
+      // NutritionScreen()
+      // const ScreenOne()
+      // ResetPasswordScreen()
+      // OrderScreen(),
+      // OnBoardingScreen()
+      // SuccessResetPasswordScreen()
+      // const SplashScreen(),
+      // CaloriesScreen()
+      // TestScreen(),
       // HomeScreen(),
       getPages: routs,
     );

@@ -3,22 +3,26 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class AppBarWidgetHome extends StatelessWidget {
-  final bool isHome ;
+  final bool isHome;
   final void Function()? onPressed;
-  const AppBarWidgetHome({super.key,this.isHome = true, this.onPressed});
+  const AppBarWidgetHome({super.key, this.isHome = true, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        isHome ?  IconButton(
-          icon: const Icon(FontAwesomeIcons.barsStaggered),
-          onPressed: onPressed,
-          ):Container(),
+        isHome
+            ? IconButton(
+                icon: const Icon(FontAwesomeIcons.barsStaggered),
+                onPressed: onPressed,
+              )
+            : Container(),
         SizedBox(
             height: 50,
-            width:isHome ? MediaQuery.of(context).size.width *  .75 :MediaQuery.of(context).size.width *   .92,
+            width: isHome
+                ? MediaQuery.of(context).size.width * .75
+                : MediaQuery.of(context).size.width * .92,
             child: TextField(
               cursorColor: AppColor.primaryColor,
               decoration: InputDecoration(
