@@ -43,6 +43,60 @@ class Data {
   }
 }
 
+//////////////////////////////////////////////////
+
+// class FoodCategoryModel {
+//   String? status;
+//   int? results;
+//   List<DataTranslated>? dataTranslated;
+
+//   FoodCategoryModel({this.status, this.results, this.dataTranslated});
+
+//   FoodCategoryModel.fromJson(Map<String, dynamic> json) {
+//     status = json['status'];
+//     results = json['results'];
+//     if (json['dataTranslated'] != null) {
+//       dataTranslated = <DataTranslated>[];
+//       json['dataTranslated'].forEach((v) {
+//         dataTranslated!.add(new DataTranslated.fromJson(v));
+//       });
+//     }
+//   }
+
+//   Map<String, dynamic> toJson() {
+//     final Map<String, dynamic> data = new Map<String, dynamic>();
+//     data['status'] = this.status;
+//     data['results'] = this.results;
+//     if (this.dataTranslated != null) {
+//       data['dataTranslated'] =
+//           this.dataTranslated!.map((v) => v.toJson()).toList();
+//     }
+//     return data;
+//   }
+// }
+
+// class DataTranslated {
+//   String? name;
+//   String? image;
+//   String? sId;
+
+//   DataTranslated({this.name, this.image, this.sId});
+
+//   DataTranslated.fromJson(Map<String, dynamic> json) {
+//     name = json['name'];
+//     image = json['image'];
+//     sId = json['_id'];
+//   }
+
+//   Map<String, dynamic> toJson() {
+//     final Map<String, dynamic> data = new Map<String, dynamic>();
+//     data['name'] = this.name;
+//     data['image'] = this.image;
+//     data['_id'] = this.sId;
+//     return data;
+//   }
+// }
+
 
 
 // class FoodCategoryModel {

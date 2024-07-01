@@ -15,9 +15,9 @@ class CardImage extends StatelessWidget {
         child: Image.network(
           image,
           // "${AppLink.imageRestaurantFood}/${controller.restaurantModel.data?.image}"
-          width: 150,
+          width: 250,
           height: 140,
-          fit: BoxFit.cover,
+          fit: BoxFit.fill,
         ),
       ),
     );

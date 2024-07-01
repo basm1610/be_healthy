@@ -1,5 +1,6 @@
 import 'package:be_healthy/controller/favourite_controller.dart';
 import 'package:be_healthy/core/constant/color.dart';
+import 'package:be_healthy/widget/offline_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -10,19 +11,35 @@ class FavouriteScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(FavouriteController());
+    FavouriteController controller = Get.put(FavouriteController());
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "My Favorite",
+        title:  Text(
+          "MyFavorite".tr,
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
-        // centerTitle: true,
-        // backgroundColor: AppColor.primaryColor,
-        // iconTheme: IconThemeData(color: Colors.white),
+        centerTitle: true,
+        backgroundColor: AppColor.primaryColor,
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
-      body: GetBuilder<FavouriteController>(
-          builder: (controller) => ListView.builder(
+      body: Obx(
+        () => controller.connectivityService.isConnected
+            ? const FavoriteItems()
+            : const OfflineWidget(),
+      ),
+    );
+  }
+}
+
+class FavoriteItems extends StatelessWidget {
+  const FavoriteItems({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GetBuilder<FavouriteController>(
+        builder: (controller) => ListView.builder(
               itemCount: controller.favouriteModel.data?.length ?? 0,
               itemBuilder: (context, index) => controller.isLoading
                   ? Lottie.asset("assets/lotties/loading.json",
@@ -60,9 +77,7 @@ class FavouriteScreen extends StatelessWidget {
                                   horizontal: 10, vertical: 5),
                               width: MediaQuery.of(context).size.width * .956,
                               decoration: BoxDecoration(
-                                  color: Colors.red
-                                  // Colors.black38.withOpacity(.5)
-                                  ,
+                                  color: Colors.black38.withOpacity(.5),
                                   borderRadius: BorderRadius.circular(1)),
                               child: Text(
                                 "${controller.favouriteModel.data![index].name}",
@@ -77,7 +92,7 @@ class FavouriteScreen extends StatelessWidget {
                           )
                         ],
                       ),
-                    ))),
-    );
+                    ),
+            ));
   }
 }

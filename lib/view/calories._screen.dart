@@ -18,8 +18,8 @@ class CaloriesScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: AppColor.primaryColor,
         iconTheme: IconThemeData(color: Colors.white),
-        title: const Text(
-          "My Calories",
+        title: Text(
+          "MyCalories".tr,
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
@@ -38,8 +38,8 @@ class CaloriesScreen extends StatelessWidget {
                     // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        " Plan",
+                      Text(
+                        "Plan".tr,
                         style: TextStyle(
                             fontSize: 25, fontWeight: FontWeight.bold),
                       ),
@@ -47,7 +47,11 @@ class CaloriesScreen extends StatelessWidget {
                         height: 20,
                       ),
                       CardCalories(
-                        colors: controller.colorCaloris == Colors.red ? controller.colorCaloris :AppColor.primaryColor ,
+                        colors: controller.colorCaloris
+                        //  == Colors.red
+                        //     ? AppColor.primaryColor
+                        //     : controller.colorCaloris,
+                        ,
                         caloriesChange: controller.data,
                         totalCalories:
                             "${controller.getDataModel.data?.caloriesNeeded}",
@@ -56,29 +60,33 @@ class CaloriesScreen extends StatelessWidget {
                       const SizedBox(
                         height: 25,
                       ),
-                      const CardWidget(
-                        isWater: false,
-                        angle: 270 * 3.141592653589793 / 180,
-                        title: "Steps",
-                        number: '1,400',
-                        icon: FontAwesomeIcons.shoePrints,
-                        description: "goal 10,000 steps",
-                        color: Color(0xffF589D7),
-                        percent: .4,
-                      ),
+                      Obx(() => CardWidget(
+                            isWater: false,
+                            angle: 270 * 3.141592653589793 / 180,
+                            title: "Steps".tr,
+                            number: controller.todaySteps.value,
+                            icon: FontAwesomeIcons.shoePrints,
+                            description: "Goal10,000Steps".tr,
+                            color: Color(0xffF589D7),
+                            percent:
+                                (double.parse(controller.todaySteps.value) /
+                                        10000) ,
+                          )),
                       const SizedBox(
                         height: 25,
                       ),
                       CardWidget(
                         angle: 360 * 3.141592653589793 / 180,
-                        title: "Water",
+                        title: "Water".tr,
                         isWater: true,
                         number:
                             "${controller.getDataModel.data?.waterQuantity}",
                         icon: Icons.water_drop,
                         description:
                             "goal ${controller.getDataModel.data?.waterNeeded} ml",
-                        color: controller.colorWater == Colors.red? controller.colorWater!:const Color(0xff65ACE0),
+                        color: controller.colorWater == Colors.red
+                            ? controller.colorWater!
+                            : const Color(0xff65ACE0),
                         percent: controller.percentWater,
                         onTapAddWater: () {
                           controller.update();

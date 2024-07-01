@@ -12,33 +12,23 @@ class VideoScreen extends StatelessWidget {
     VideoController controller = Get.put(VideoController());
     return Scaffold(
       appBar: AppBar(
+        title: Text(
+          "${controller.name}",
+          overflow: TextOverflow.clip,
+          style: TextStyle(
+              // overflow: TextOverflow.ellipsis,
+
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+              color: Theme.of(context).colorScheme.onSecondary),
+        ),
         actions: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: GetBuilder<VideoController>(
-                builder: (controller) => IconButton(
-                      onPressed: () {
-                        if (controller.isFavorite[
-                                controller.videoDataModel.data?.sId] ==
-                            "1") {
-                          controller.setFavorite(
-                              controller.videoDataModel.data?.sId, "0");
-                        } else {
-                          controller.setFavorite(
-                              controller.videoDataModel.data?.sId, "1");
-                          controller.addFavorite("${controller.videoDataModel.data?.sId}");
-                        }
-                      },
-                      icon: Icon(
-                        controller.isFavorite[
-                                    controller.videoDataModel.data?.sId] ==
-                                "1"
-                            ? Icons.favorite
-                            : Icons.favorite_border,
-                        size: 30,
-                        color: Colors.red,
-                      ),
-                    )),
+            padding: const EdgeInsets.all(10.0),
+            child: Icon(
+              Icons.favorite_border_outlined,
+              size: 30,
+            ),
           )
         ],
       ),
@@ -54,11 +44,25 @@ class VideoScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: ListView(
                     children: [
-                      Text(
-                        "${controller.videoDataModel.data?.name}",
-                        style: const TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
-                      ),
+                      // Row(
+                      //   children: [
+                      //     IconButton(
+                      //         onPressed: () {
+                      //           Get.back();
+                      //         },
+                      //         icon: Icon(Icons.arrow_back)),
+                      //     Text(
+                      //       "${controller.videoDataModel.data?.name}",
+                      //       overflow: TextOverflow.clip,
+                      //       style: TextStyle(
+                      //           // overflow: TextOverflow.ellipsis,
+
+                      //           fontSize: 16,
+                      //           fontWeight: FontWeight.w600,
+                      //           color: Colors.black),
+                      //     ),
+                      //   ],
+                      // ),
                       ClipRRect(
                         borderRadius: BorderRadius.circular(8),
                         child: PodVideoPlayer(

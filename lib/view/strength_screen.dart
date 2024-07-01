@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:be_healthy/controller/strength_controller.dart';
 import 'package:be_healthy/core/constant/color.dart';
+import 'package:be_healthy/core/constant/link_api.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
@@ -19,14 +20,16 @@ class StrengthScreen extends StatelessWidget {
           iconTheme: IconThemeData(color: Colors.black),
           backgroundColor: Colors.white,
           bottom: TabBar(
-            onTap: (index) {
+            onTap: (index) async{
               if (index == 0) {
-                controller.level = "beginner";
+                controller.level = "Beginner".tr;
+              await controller.getData();
               } else {
-                controller.level = "advanced";
+                controller.level = "Advanced".tr;
+               await controller.getData();
               }
               log("index is: $index");
-              controller.getData();
+              await controller.getData();
               controller.update();
             },
             // padding: EdgeInsets.zero,
@@ -41,13 +44,13 @@ class StrengthScreen extends StatelessWidget {
             indicator: BoxDecoration(
                 borderRadius: BorderRadius.circular(5), // Creates border
                 color: AppColor.fourthColor),
-            tabs: const [
-              Tab(text: "beginner"),
-              Tab(text: "advanced"),
+            tabs:  [
+              Tab(text: "Beginner".tr),
+              Tab(text: "Advanced".tr),
             ],
           ),
-          title: const Text(
-            "Strength training",
+          title:  Text(
+            "StrengthTraining".tr,
             style: TextStyle(
                 fontSize: 25, fontWeight: FontWeight.w600, color: Colors.black),
           ),
@@ -62,14 +65,16 @@ class StrengthScreen extends StatelessWidget {
                             child: Lottie.asset("assets/lotties/loading.json",
                                 width: 200, height: 200),
                           )
-                        : const CustomTabBarItem(),
+                        : 
+                        const CustomTabBarItem(),
                     controller.isLoading
                         ? Center(
                             // heightFactor: 2.5,
                             child: Lottie.asset("assets/lotties/loading.json",
                                 width: 200, height: 200),
                           )
-                        : const CustomTabBarItem()
+                        : 
+                        const CustomTabBarItem()
                   ],
                 )),
       ),
@@ -89,9 +94,9 @@ class CustomTabBarItem extends GetView<StrengthController> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            "Full Body Training",
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+           Text(
+            "FullBodyTraining".tr,
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * .75,
@@ -105,12 +110,15 @@ class CustomTabBarItem extends GetView<StrengthController> {
                         InkWell(
                           onTap: () {
                             controller.goToScreenVideo(
-                                "${controller.workOutModel.data![index].sId}");
+                                "${controller.workOutModel.data![index].sId}","${controller.workOutModel.data![index].name}");
                           },
                           child: Container(
                             margin: const EdgeInsets.only(right: 10),
                             child: Image.network(
-                              "${controller.workOutModel.data![index].image}",
+                              "${controller.workOutModel.data![index].image}"
+                              // "${AppLink.imageTraining}/${controller.workOutModel.data?[index].image}"
+
+                              ,
                               fit: BoxFit.cover,
                               // width: ,
                               // width: double.maxFinite,

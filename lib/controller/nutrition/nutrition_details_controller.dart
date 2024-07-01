@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 
+import 'package:be_healthy/controller/test/test_controller.dart';
 import 'package:be_healthy/core/constant/link_api.dart';
 import 'package:be_healthy/core/services/myservices.dart';
 import 'package:be_healthy/model/food_all_category_model.dart';
@@ -10,6 +11,8 @@ import 'package:http/http.dart' as http;
 
 class NutritionDetailsController extends GetxController {
   FoodAllCategoryModel foodAllCategoryModel = FoodAllCategoryModel();
+  final ConnectivityService connectivityService = Get.find();
+
   MyServices myServices = Get.find();
   bool isLoading = false;
   late String name;
@@ -19,7 +22,8 @@ class NutritionDetailsController extends GetxController {
 
 
   getData() async { 
-    isLoading = true;
+    if (connectivityService.isConnected) {
+      isLoading = true;
     update();
     final response = await http.get(Uri.parse("${AppLink.categoryAllFood}$id"));
     if (response.statusCode == 200 || response.statusCode == 201) {
@@ -37,6 +41,10 @@ class NutritionDetailsController extends GetxController {
     }
     isLoading = false;
     update();
+    }else{
+      log("Not connect");
+    }
+    
   }
 
   Future<void> sendPostRequest(String numCalories) async {
@@ -81,12 +89,12 @@ class NutritionDetailsController extends GetxController {
 
 
   @override
-  void onInit() {
+  void onInit() async{
     name = Get.arguments["name"];
     image = Get.arguments["image"];
     id = Get.arguments["id"];
-    getData();
     log("id: $id");
+    await getData();
     super.onInit();
   }
 }

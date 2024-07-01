@@ -1,5 +1,7 @@
 import 'package:be_healthy/controller/home_controller.dart';
+import 'package:be_healthy/core/constant/link_api.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
@@ -12,52 +14,29 @@ class ExerciseSection extends StatelessWidget {
     return GetBuilder<HomeController>(
         builder: (controller) => Row(
               children: [
-                // InkWell(
-                //   onTap: () {
-                //     controller.goToWorkOutScreen();
-                //   },
-                //   child: const Card(
-                //     color: Color(0xFFC05DDA),
-                //     child: Padding(
-                //       padding: EdgeInsets.symmetric(
-                //           horizontal: 5, vertical: 25),
-                //       child: Center(
-                //           child: Text(
-                //         "all\nexercise",
-                //         style: TextStyle(color: Colors.white, fontSize: 10),
-                //         textAlign: TextAlign.center,
-                //       )),
-                //     ),
-                //   ),
-                // ),
-
                 SizedBox(
-                  // color: Colors.amber,
-                  height: 100,
+                  height: 100.h,
                   width: MediaQuery.of(context).size.width * .91,
                   child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: controller.workOutModel.data?.length ?? 0,
-                      itemBuilder: (context, index) => controller.isLoading
-                          ? Center(
-                              // heightFactor: 2.5,
-                              child: Lottie.asset("assets/lotties/loading.json",
-                                  width: 200, height: 200),
-                            )
-                          : InkWell(
+                      itemBuilder: (context, index) => 
+                      InkWell(
                               onTap: () {
                                 controller.goToWorkOutScreen();
                               },
                               child: Padding(
                                 padding:
-                                    const EdgeInsets.symmetric(horizontal: 5),
+                                     EdgeInsets.symmetric(horizontal: 5.w),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(15),
-                                  child: Image.network(
-                                    "${controller.workOutModel.data?[index].image}",
+                                  child: controller.isLoading? CircularProgressIndicator() :Image.network(
+                                    "${controller.workOutModel.data?[index].image}"
+                                    // "${AppLink.imageTraining}/${controller.workOutModel.data?[index].image}"
+                                    ,
                                     // controller.imagesGym[index],
                                     // height: 100,
-                                    width: 150,
+                                    width: 150.w,
                                     fit: BoxFit.cover,
                                   ),
                                 ),

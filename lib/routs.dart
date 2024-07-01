@@ -12,6 +12,7 @@ import 'package:be_healthy/view/calories._screen.dart';
 import 'package:be_healthy/view/contact_us_screen.dart';
 import 'package:be_healthy/view/favourite_screen.dart';
 import 'package:be_healthy/view/main_home.dart';
+import 'package:be_healthy/view/mediation_screen.dart';
 import 'package:be_healthy/view/mydata/screen_one.dart';
 import 'package:be_healthy/view/mydata/screen_two.dart';
 import 'package:be_healthy/view/nutrition/nutrition.dart';
@@ -21,6 +22,7 @@ import 'package:be_healthy/view/onboarding/onboarding_screen.dart';
 import 'package:be_healthy/view/order/order_details_screen.dart';
 import 'package:be_healthy/view/order/order_screen.dart';
 import 'package:be_healthy/view/popular_screen.dart';
+import 'package:be_healthy/view/setting_screen.dart';
 import 'package:be_healthy/view/splash_screen.dart';
 import 'package:be_healthy/view/video_screen.dart';
 import 'package:get/get.dart';
@@ -50,6 +52,8 @@ List<GetPage<dynamic>>? routs=[
   GetPage(name: AppRouts.favourite, page: ()=> const FavouriteScreen()),
   GetPage(name: AppRouts.popular, page: ()=> const PopularScreen()),
   GetPage(name: AppRouts.contactus, page: ()=> const ContactUs()),
+  GetPage(name: AppRouts.setting, page: ()=> const SettingScreen()),
+  GetPage(name: AppRouts.meditation, page: ()=> const MeditationScreen()),
   
 
 ];

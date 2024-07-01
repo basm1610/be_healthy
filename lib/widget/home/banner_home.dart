@@ -1,5 +1,6 @@
 import 'package:be_healthy/controller/home_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class BannerHome extends GetView<HomeController> {
@@ -14,8 +15,8 @@ class BannerHome extends GetView<HomeController> {
       child: Stack(
         children: [
           Container(
-            height: 117,
-            width: 350,
+            height: MediaQuery.of(context).size.height * .15,
+            width: MediaQuery.of(context).size.width / .972,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
                 gradient: LinearGradient(colors: [
@@ -33,25 +34,26 @@ class BannerHome extends GetView<HomeController> {
               ),
             ),
           ),
-          const Positioned(
-              top: 30,
-              left: 10,
+          Positioned(
+              top: 30.h,
+              left: 10.w,
               child: Text(
-                "you can order by\nusing our coupon",
-                style: TextStyle(
+                "TitleBannerHome".tr,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w500,
                   // fontSize: 14
                 ),
               )),
-          const Positioned(
-            bottom: 8,
-            left: 15,
+          Positioned(
+            bottom: 8.h,
+            left: 15.w,
             child: Text(
-              "Order   >",
+              "Order".tr,
               style: TextStyle(
                   color: Colors.white,
-                  fontSize: 12,
+                  fontSize: 12.sp,
                   fontWeight: FontWeight.bold),
             ),
           ),

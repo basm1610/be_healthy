@@ -1,43 +1,63 @@
 import 'dart:convert';
 import 'dart:developer';
 
+import 'package:be_healthy/controller/test/test_controller.dart';
 import 'package:be_healthy/core/constant/link_api.dart';
 import 'package:be_healthy/core/constant/routs_name.dart';
+import 'package:be_healthy/core/services/myservices.dart';
 import 'package:be_healthy/model/workout_model.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 class StrengthController extends GetxController {
   bool isLoading = false;
-  String level = "beginner" ;
+  String level = "Beginner".tr;
   WorkOutModel workOutModel = WorkOutModel();
+  final ConnectivityService connectivityService = Get.find();
+  MyServices myServices = Get.find();
+
   late String category;
+  //  Map<String, String> cat= {
+  //    : ""
+  // }
+
+
   getData() async {
-    isLoading = true;
-    update();
-    final response =
-        await http.get(Uri.parse("${AppLink.training}$level&category=${category.toLowerCase()}"));
-    if (response.statusCode == 200 || response.statusCode == 201) {
-      var jsonResponse = jsonDecode(response.body);
-      workOutModel = WorkOutModel.fromJson(jsonResponse);
-      log("Data: $jsonResponse");
+    log("cccccccccccccc ${category}");
+    if (connectivityService.isConnected) {
+      isLoading = true;
+      update();
+      final response = await http.get(
+        Uri.parse("${AppLink.training}${level.tr}&category=${category.toLowerCase()}"),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'lang': '${myServices.sharedPreferences.getString("lang")}',
+        },
+      );
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        var jsonResponse = jsonDecode(response.body);
+        workOutModel = WorkOutModel.fromJson(jsonResponse);
+        log("Data: $jsonResponse");
+      }
+      isLoading = false;
+      update();
+      log("category is: ${category}");
+    } else {
+      log("not connected");
     }
-    isLoading = false;
     update();
-    log("category is: ${category}");
-
   }
 
-  goToScreenVideo(String id) {
-    Get.toNamed(AppRouts.videoScreen, arguments: {"id": id});
+  goToScreenVideo(String id,String name) {
+    Get.toNamed(AppRouts.videoScreen, arguments: {"id": id, "name":name});
   }
-  
+
   @override
-  void onInit() {
+  void onInit() async {
     category = Get.arguments['cat'];
-    log("category:  ${category.toLowerCase()}");
-    log("level is: ${level}");
-    getData();
     super.onInit();
+    await getData();
   }
 }

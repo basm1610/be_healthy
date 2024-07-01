@@ -28,7 +28,8 @@ class OrderCardWidget extends StatelessWidget {
                   onTap: () {
                     // log("${controller.data[index].title}");
                     controller.goToOrderDetails(
-                        "${controller.foodCategoryModel.data![index].sId}");
+                        "${controller.foodCategoryModel.data![index].sId}",
+                        "${controller.foodCategoryModel.data![index].name}");
                   },
                   child: Column(
                     children: [
@@ -53,10 +54,10 @@ class OrderCardWidget extends StatelessWidget {
                           ),
                           Text(
                             "${controller.foodCategoryModel.data![index].name}",
-                            style: const TextStyle(
+                            style: TextStyle(
                                 fontWeight: FontWeight.w500,
                                 fontSize: 12,
-                                color: Color(0xff555252)),
+                                color: Theme.of(context).colorScheme.onSurface),
                           ),
                         ],
                       ),

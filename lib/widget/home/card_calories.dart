@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class CardCaloriesHome extends StatelessWidget {
   final void Function()? onTap;
@@ -7,21 +9,24 @@ class CardCaloriesHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.white,
+      // color: Colors.white,
       surfaceTintColor: Colors.transparent,
       elevation: 1.5,
       child: ListTile(
         onTap: onTap,
-        contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
-        title: const Text("you can track your data here",
-            style: TextStyle(fontWeight: FontWeight.w700, fontSize: 15)),
-        subtitle: const Text(
-          "your calories,steps,water",
-          style: TextStyle(color: Color(0xff6B7280), fontSize: 12),
+        contentPadding:  EdgeInsets.symmetric(horizontal: 10.w, vertical: 0),
+        title: Text("TitleCardCaloriesHome".tr,
+            style: TextStyle(
+                fontWeight: FontWeight.w700,
+                fontSize: 15,
+                color: Theme.of(context).colorScheme.onSecondary)),
+        subtitle:  Text(
+          "SubTitleCardCaloriesHome".tr,
+          style: TextStyle(color: const Color(0xff6B7280), fontSize: 12.sp),
         ),
-        trailing: const Text(
-          "See All >",
-          style: TextStyle(color: Color(0xff6B7280)),
+        trailing:  Text(
+          "SeeAll".tr,
+          style: const TextStyle(color: Color(0xff6B7280)),
         ),
       ),
     );

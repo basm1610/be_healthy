@@ -1,5 +1,6 @@
 import 'package:be_healthy/controller/order/order_controller.dart';
 import 'package:be_healthy/core/constant/color.dart';
+import 'package:be_healthy/widget/offline_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -10,7 +11,7 @@ class OrderScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(OrderController());
+    OrderController controller = Get.put(OrderController());
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColor.primaryColor,
@@ -21,26 +22,21 @@ class OrderScreen extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: GetBuilder<OrderController>(
-          builder: (controller) => const SafeArea(
-                child: Padding(
-                  padding: EdgeInsets.only(top: 10, left: 5, right: 5),
+      body: Obx(() => controller.networkService.isConnected.value
+          ? SafeArea(
+              child: Padding(
+                padding: EdgeInsets.only(top: 10, left: 5, right: 5),
+                child: SingleChildScrollView(
                   child: Column(
                     // physics: NeverScrollableScrollPhysics(),
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // AppBarWidgetHome(
-                      //   isHome: false,
-                      // ),
-                      // SizedBox(
-                      //   height: 20,
-                      // ),
                       Padding(
                         padding: EdgeInsets.only(left: 8),
                         child: Text(
                           "Order food online",
                           style: TextStyle(
-                              color: Color(0xff6A6A6A),
+                              color: Theme.of(context).colorScheme.onSurface,
                               fontSize: 18,
                               fontWeight: FontWeight.bold),
                         ),
@@ -52,7 +48,9 @@ class OrderScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-              )),
+              ),
+            )
+          : const OfflineWidget()),
     );
   }
 }

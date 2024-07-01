@@ -32,8 +32,10 @@ class WorkOutCard extends StatelessWidget {
               ),
               Text(
                 title,
-                style:
-                    const TextStyle(fontSize: 21, fontWeight: FontWeight.w500),
+                style: TextStyle(
+                    fontSize: 21,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black),
               )
             ],
           ),

@@ -4,18 +4,17 @@ import 'dart:developer';
 import 'package:be_healthy/core/constant/link_api.dart';
 import 'package:be_healthy/core/services/myservices.dart';
 import 'package:be_healthy/model/video_data_model.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:http/http.dart' as http;
 
 class VideoController extends GetxController {
   late String id;
+  late String name;
   Map isFavorite = {};
-  late YoutubePlayerController youtubePlayerController;
   VideoDataModel videoDataModel = VideoDataModel();
   MyServices myServices = Get.find();
   Duration? duration;
-  String? urlVideo = "https://youtu.be/jeLxN-wt7jY?si=-21CctevepV5sKc3";
   var videoId;
   bool isLoading = false;
 
@@ -33,7 +32,7 @@ class VideoController extends GetxController {
         'Authorization':
             'Bearer ${myServices.sharedPreferences.getString("token")}',
       },
-      body: jsonEncode({"trainingId" : itemId}),
+      body: jsonEncode({"trainingId": itemId}),
     );
     if (response.statusCode == 200 || response.statusCode == 201) {
       var jsonResponse = jsonDecode(response.body);
@@ -45,7 +44,11 @@ class VideoController extends GetxController {
   getData() async {
     isLoading = true;
     update();
-    final response = await http.get(Uri.parse("${AppLink.trainingDetails}$id"));
+    final response = await http.get(Uri.parse("${AppLink.trainingDetails}$id"),headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'lang': '${myServices.sharedPreferences.getString("lang")}',
+        },);
     if (response.statusCode == 200 || response.statusCode == 201) {
       var jsonResponse = jsonDecode(response.body);
       videoDataModel = VideoDataModel.fromJson(jsonResponse);
@@ -53,7 +56,6 @@ class VideoController extends GetxController {
       // urlVideo = "${jsonResponse['data']['link']}";
       log("Data: $jsonResponse");
       log("Data: ${videoDataModel.data?.link}");
-      log("URL is: $urlVideo");
     }
     isLoading = false;
     update();
@@ -62,6 +64,7 @@ class VideoController extends GetxController {
   @override
   void onInit() {
     id = Get.arguments["id"];
+    name = Get.arguments["name"];
     getData();
 
     super.onInit();

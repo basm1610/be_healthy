@@ -3,47 +3,34 @@ import 'package:be_healthy/core/constant/color.dart';
 import 'package:be_healthy/core/constant/image_asset.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
 
 class ContactUs extends StatelessWidget {
   const ContactUs({super.key});
 
   @override
   Widget build(BuildContext context) {
-    ContactUsController controller = Get.put(ContactUsController());
+     Get.put(ContactUsController());
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppColor.primaryColor,
-        title: const Text("Contact Us"),
+        title: Text(
+          "ContactUs".tr,
+          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
         centerTitle: true,
+        backgroundColor: AppColor.primaryColor,
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: GetBuilder<ContactUsController>(
             builder: (controller) => SingleChildScrollView(
                   child: Column(
-                    // crossAxisAlignment: CrossAxisAlignment.center,
-                    // mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      // Lottie.asset(AppImageAsset.contactUs, width: 200, height: 200),
                       Image.asset(
-                        "${AppImageAsset.contactUsImage}",
+                        AppImageAsset.contactUsImage,
                         width: 170,
                         // fit: BoxFit.cover,
                       ),
-                      // const Center(
-                      //   child: Text(
-                      //     textAlign: TextAlign.center,
-                      //     "Please give us your opinion about the application",
-                      //     style: TextStyle(
-                      //       fontSize: 25,
-                      //       fontWeight: FontWeight.bold,
-                      //     ),
-                      //   ),
-                      // ),
-                      // SizedBox(
-                      //   height: 20,
-                      // ),
                       Form(
                         key: controller.formState,
                         child: TextFormField(
@@ -52,19 +39,19 @@ class ContactUs extends StatelessWidget {
                           maxLines: 6,
                           validator: (value) {
                             if (value!.isEmpty) {
-                              return "please add your feedback";
+                              return "PleaseAddYourFeedback".tr;
                             } else if (value.length <= 4) {
-                              return "you should your feedback greater then of 4";
+                              return "Yourfeedbacksmustbelongerthan4characters".tr;
                             }
                             return null;
                           },
                           decoration: InputDecoration(
-                              hintText: "Enter Your Feedback",
+                              hintText: "EnterYourFeedback".tr,
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10))),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       MaterialButton(
@@ -77,20 +64,20 @@ class ContactUs extends StatelessWidget {
                           controller.sendFeedback();
                         },
                         child: Text(
-                          "Send Message",
-                          style: TextStyle(color: Colors.white, fontSize: 18),
+                          "SendMessage".tr,
+                          style: const TextStyle(color: Colors.white, fontSize: 18),
                         ),
                       ),
                       SizedBox(
                         height: MediaQuery.of(context).size.height * .03,
                       ),
                       Text(
-                        "Connect with us",
-                        style: TextStyle(
+                        "Connectwithus".tr,
+                        style: const TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 20),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
+                      const Padding(
+                        padding: EdgeInsets.symmetric(
                             horizontal: 30, vertical: 5),
                         child: Divider(),
                       ),
@@ -101,11 +88,11 @@ class ContactUs extends StatelessWidget {
                         },
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15)),
-                        tileColor: Color(0xff008E85),
+                        tileColor: const Color(0xff008E85),
                         iconColor: Colors.white,
                         title: Text(
-                          "Email",
-                          style: TextStyle(
+                          "Email".tr,
+                          style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
                               fontSize: 18),
@@ -114,9 +101,9 @@ class ContactUs extends StatelessWidget {
                           "BeHealthy@gmail.com",
                           style: TextStyle(color: Colors.grey.shade300),
                         ),
-                        trailing: Icon(Icons.email_outlined),
+                        trailing: const Icon(Icons.email_outlined),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       ListTile(
@@ -125,11 +112,11 @@ class ContactUs extends StatelessWidget {
                         },
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15)),
-                        tileColor: Color(0xff4F4350),
+                        tileColor: const Color(0xff008E85),
                         iconColor: Colors.white,
                         title: Text(
-                          "Phone",
-                          style: TextStyle(
+                          "Phone".tr,
+                          style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
                               fontSize: 18),
@@ -138,7 +125,7 @@ class ContactUs extends StatelessWidget {
                           "01050625339",
                           style: TextStyle(color: Colors.grey.shade300),
                         ),
-                        trailing: Icon(Icons.phone_android_outlined),
+                        trailing: const Icon(Icons.phone_android_outlined),
                       )
                     ],
                   ),

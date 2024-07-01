@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'package:be_healthy/core/constant/link_api.dart';
+import 'package:be_healthy/core/services/myservices.dart';
 import 'package:be_healthy/model/food_all_category_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,13 +12,19 @@ class SearchFoodController extends GetxController {
   bool isSearch = true;
   late TextEditingController search;
   FoodAllCategoryModel foodAllCategoryModel = FoodAllCategoryModel();
+  MyServices myServices = Get.find();
 
-  
   getData() async {
     isLoading = true;
     update();
-    final response =
-        await http.get(Uri.parse("${AppLink.searchAllFood}${search.text}"));
+    final response = await http.get(
+      Uri.parse("${AppLink.searchAllFood}${search.text}"),
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'lang': '${myServices.sharedPreferences.getString("lang")}',
+      },
+    );
     var jsonResponse = jsonDecode(response.body);
     if (response.statusCode == 200 || response.statusCode == 201) {
       if (search.text != "") {

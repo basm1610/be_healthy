@@ -23,11 +23,13 @@ class CustomTextFieldSearch extends StatelessWidget {
       child: Row(children: [
         Expanded(
             child: TextFormField(
+          style: TextStyle(color: Colors.black),
           textInputAction: TextInputAction.search,
           // autofocus: true,
           onFieldSubmitted: onFieldSubmitted,
           controller: mycontroller,
           onChanged: onChanged,
+
           decoration: InputDecoration(
               suffixIconColor: AppColor.primaryColor,
               suffixIcon: IconButton(
@@ -37,7 +39,7 @@ class CustomTextFieldSearch extends StatelessWidget {
               // prefixIcon: IconButton(
               //     icon: Icon(Icons.search), onPressed: onPressedSearch),
               hintText: titleappbar,
-              hintStyle: const TextStyle(fontSize: 18),
+              hintStyle: const TextStyle(fontSize: 18, color: Colors.black),
               border: OutlineInputBorder(
                   borderSide: BorderSide.none,
                   borderRadius: BorderRadius.circular(10)),

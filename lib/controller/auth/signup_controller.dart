@@ -38,10 +38,15 @@ class SignUpController extends GetxController {
 
   // function is used to connected by backend to signup
   Future<void> sendPostRequest() async {
+    // if (password.text != confirmPassword.text) {
+    //   return Get.defaultDialog(
+    //       title: "warning",
+    //       middleText: "password and confirm password not matched.");
+    // }
     if (formState.currentState!.validate()) {
       isLoading = true;
       update();
-      var response = await http.post(Uri.parse(AppLink.linkSignUp),
+      var response = await http.post(Uri.parse("https://be-healthy-api.onrender.com/api/v1/auth/signup"),
           headers: {"Content-Type": "application/json"},
           body: jsonEncode({
             "name": userName.text,

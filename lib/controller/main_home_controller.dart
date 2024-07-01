@@ -1,3 +1,4 @@
+import 'package:be_healthy/core/services/myservices.dart';
 import 'package:be_healthy/view/account_screen.dart';
 import 'package:be_healthy/view/home_screen.dart';
 import 'package:be_healthy/view/nutrition/nutrition.dart';
@@ -8,25 +9,26 @@ import 'package:get/get.dart';
 
 class MainHomeController extends GetxController {
   int currentIndex = 0;
+  MyServices myServices = Get.find();
 
   List<dynamic> listPage = [
     const HomeScreen(),
     // Get.toNamed(AppRouts.calories),
     // const CaloriesScreen(),
     const NutritionScreen(),
-     const WorkOutScreen(),
+    const WorkOutScreen(),
     const AccountScreen(),
   ];
   List titleBottomBar = [
-    "home",
-    "Nutrition",
-    "Workout",
-    "Account",
+    "Home".tr,
+    "Nutrition".tr,
+    "Workouts".tr,
+    "Account".tr,
   ];
   List<IconData> iconBottomBar = [
     Icons.home,
     FontAwesomeIcons.nutritionix,
-    Icons.work_outline,
+    FontAwesomeIcons.personWalking,
     FontAwesomeIcons.user,
   ];
 

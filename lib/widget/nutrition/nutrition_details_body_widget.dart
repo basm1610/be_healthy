@@ -35,6 +35,8 @@ class NutritionDetailsBodyWidget extends StatelessWidget {
                     ),
                     onPressed: () {
                       Get.defaultDialog(
+                          backgroundColor:
+                              Theme.of(context).colorScheme.background,
                           title: "Attention!",
                           cancelTextColor: AppColor.primaryColor,
                           confirmTextColor: Colors.white,

@@ -43,7 +43,7 @@ class SignUpScreen extends StatelessWidget {
                               icon: Icons.person,
                               controller: controller.userName,
                               valid: (value) {
-                                return validInput(value!, 5, 10, "username");
+                                return validInput(value!, 4, 10, "username");
                               },
                             ),
                             const SizedBox(

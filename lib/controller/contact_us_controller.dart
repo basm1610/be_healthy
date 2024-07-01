@@ -51,8 +51,8 @@ GlobalKey<FormState> formState = GlobalKey<FormState>();  MyServices myServices 
       log("response === ${response.body}");
       Get.snackbar(
         snackPosition: SnackPosition.BOTTOM,
-        "attention",
-        "Add 250 ml of Water Success",
+        "attention".tr,
+        "Yourfeedbackhasbeensentsuccessfully".tr,
         duration: const Duration(seconds: 2),
         icon: const Icon(
           FontAwesomeIcons.clipboardCheck,

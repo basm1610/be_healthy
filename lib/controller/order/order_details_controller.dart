@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 
+import 'package:be_healthy/controller/test/test_controller.dart';
 import 'package:be_healthy/core/constant/color.dart';
 import 'package:be_healthy/core/constant/link_api.dart';
 import 'package:be_healthy/core/services/myservices.dart';
@@ -16,8 +17,12 @@ class OrderDetailsController extends GetxController {
   int isSelected = -1;
   bool isLoading = false;
   late String id;
+  late String name;
   late int rateFromUser;
   RestaurantModel restaurantModel = RestaurantModel();
+  NetworkService networkService = Get.put(NetworkService());
+  
+
   MyServices myServices = Get.find();
   late Uri url;
 
@@ -45,51 +50,6 @@ class OrderDetailsController extends GetxController {
     } else {
       rateFromUser = 4;
     }
-    // var response = await http.post(Uri.parse(AppLink.createReview),
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //       'Accept': 'application/json',
-    //       'Authorization':
-    //           'Bearer ${myServices.sharedPreferences.getString("token")}',
-    //     },
-    //     body: jsonEncode({
-    //       "ratings": "$rateFromUser",
-    //       "restaurant": id,
-    //     }));
-    // var jsonResponse = jsonDecode(response.body);
-    // if (response.statusCode == 201 || response.statusCode == 200) {
-    //   log("success");
-    //   log("response === ${response.body}");
-    //   Get.snackbar(
-    //     snackPosition: SnackPosition.BOTTOM,
-    //     "attention",
-    //     "Sucess To Add Review !",
-    //     duration: const Duration(seconds: 2),
-    //     icon: const Icon(
-    //       Icons.done_all_outlined,
-    //       size: 35,
-    //     ),
-    //   );
-    // } else if (jsonResponse['status'] == "fail") {
-    //   log("${jsonResponse['status']}");
-    //   log("${jsonResponse['message']}");
-    //   Get.snackbar(
-    //     snackPosition: SnackPosition.BOTTOM,
-    //     "attention",
-    //     "${jsonResponse['message']}",
-    //     duration: const Duration(seconds: 2),
-    //     icon: const Icon(
-    //       Icons.error_rounded,
-    //       size: 35,
-    //     ),
-    //   );
-    // } else {
-    //   log("${response.statusCode}");
-    //   log("fiald");
-    // }
-    update();
-    // log("index is : $index");
-    // log("index is : $rateFromUser");
   }
 
   void ratting(rate) {
@@ -98,19 +58,27 @@ class OrderDetailsController extends GetxController {
   }
 
   getData() async {
-    isLoading = true;
-    update();
-    final response =
-        await http.get(Uri.parse("${AppLink.restaurantDetails}$id"));
-    var jsonResponse = jsonDecode(response.body);
-    if (response.statusCode == 200 || response.statusCode == 201) {
-      restaurantModel = RestaurantModel.fromJson(jsonResponse);
-      rating = restaurantModel.data!.rate;
-      url = Uri.parse("${jsonResponse['data']['link']}");
-      log("Data: ${jsonResponse["data"]}");
-    }
-    isLoading = false;
-    update();
+    // if (!networkService.isConnected.value) {
+      isLoading = true;
+      update();
+      final response =
+          await http.get(Uri.parse("${AppLink.restaurantDetails}$id"),headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'lang': '${myServices.sharedPreferences.getString("lang")}',
+        },);
+      var jsonResponse = jsonDecode(response.body);
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        restaurantModel = RestaurantModel.fromJson(jsonResponse);                 
+        rating = restaurantModel.data!.rate;
+        url = Uri.parse("${jsonResponse['data']['link']}");
+        log("Data: ${jsonResponse["data"]}");
+      }
+      isLoading = false;
+      update();
+    // } else {
+    //   log("not connected");
+    // }
   }
 
   Future<void> goLaunchUrl() async {
@@ -129,10 +97,11 @@ class OrderDetailsController extends GetxController {
   }
 
   @override
-  void onInit() {
+  void onInit() async{
     id = Get.arguments["id"];
+    name = Get.arguments["name"];
     log("id from resturant is: $id");
-    getData();
     super.onInit();
+   await getData();
   }
 }

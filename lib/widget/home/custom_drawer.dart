@@ -11,23 +11,25 @@ class CustomDrawer extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Colors.white,
+      // backgroundColor: Colors.black,
       surfaceTintColor: Colors.transparent,
       child: ListView(
         padding: const EdgeInsets.all(0),
         children: [
           DrawerHeader(
-            decoration: const BoxDecoration(
-              color: AppColor.primaryColor,
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.primary,
             ), //BoxDecoration
             child: UserAccountsDrawerHeader(
-              decoration: const BoxDecoration(color: AppColor.primaryColor),
+              decoration:
+                  BoxDecoration(color: Theme.of(context).colorScheme.primary),
               accountName: Text(
                 "${controller.name}",
                 style: const TextStyle(fontSize: 14),
               ),
               accountEmail: Text("${controller.email}"),
               currentAccountPictureSize: const Size.square(50),
+              // margin: EdgeInsets.all(0),
               currentAccountPicture: CircleAvatar(
                 backgroundColor: AppColor.fourthColor,
                 child: Text(
@@ -37,23 +39,23 @@ class CustomDrawer extends GetView<HomeController> {
               ), //circleAvatar
             ), //UserAccountDrawerHeader
           ), //DrawerHeader
-          ListTile(
-            leading: const Icon(Icons.person),
-            title: const Text(
-              ' My Profile ',
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-            iconColor: AppColor.grey2,
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ),
+          // ListTile(
+          //   leading: const Icon(Icons.person),
+          //   title: const Text(
+          //     ' My Profile ',
+          //     style: TextStyle(fontWeight: FontWeight.bold),
+          //   ),
+          //   iconColor: AppColor.grey2,
+          //   onTap: () {
+          //     Navigator.pop(context);
+          //   },
+          // ),
           ListTile(
             leading: const Icon(Icons.favorite),
             iconColor: AppColor.grey2,
-            title: const Text(
-              ' Favorite ',
-              style: TextStyle(fontWeight: FontWeight.bold),
+            title:  Text(
+              'Favorite'.tr,
+              style: const TextStyle(fontWeight: FontWeight.bold),
             ),
             onTap: () {
               controller.goToFavouriteScreen();
@@ -62,32 +64,44 @@ class CustomDrawer extends GetView<HomeController> {
           ListTile(
             leading: const Icon(Icons.workspace_premium),
             iconColor: AppColor.grey2,
-            title: const Text(
-              ' Popular ',
-              style: TextStyle(fontWeight: FontWeight.bold),
+            title:  Text(
+              'Popular'.tr,
+              style: const TextStyle(fontWeight: FontWeight.bold),
             ),
             onTap: () {
               controller.goToPopularScreen();
             },
           ),
           ListTile(
-            leading: const Icon(Icons.contact_support),
+            leading: const Icon(Icons.settings),
             iconColor: AppColor.grey2,
-            title: const Text(
-              ' Contact Us ',
-              style: TextStyle(fontWeight: FontWeight.bold),
+            title:  Text(
+              'Settings'.tr,
+              style: const TextStyle(fontWeight: FontWeight.bold),
             ),
             // titleTextStyle: TextStyle(fontWeight: FontWeight.bold),
             onTap: () {
-              controller.goToContactUsScreen();
+              controller.goToSettingScreen();
             },
           ),
+          // ListTile(
+          //   leading: const Icon(Icons.contact_support),
+          //   iconColor: AppColor.grey2,
+          //   title: const Text(
+          //     ' Contact Us ',
+          //     style: TextStyle(fontWeight: FontWeight.bold),
+          //   ),
+          //   // titleTextStyle: TextStyle(fontWeight: FontWeight.bold),
+          //   onTap: () {
+          //     controller.goToContactUsScreen();
+          //   },
+          // ),
           ListTile(
             leading: const Icon(Icons.logout),
             iconColor: AppColor.grey2,
-            title: const Text(
-              'LogOut',
-              style: TextStyle(fontWeight: FontWeight.bold),
+            title:  Text(
+              'LogOut'.tr,
+              style: const TextStyle(fontWeight: FontWeight.bold),
             ),
             onTap: () {
               controller.logout();

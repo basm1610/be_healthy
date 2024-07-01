@@ -53,9 +53,77 @@ class MyTranslation extends Translations {
           "Item2": "light : 1-3 days per week",
           "Item3": "middle : 3-5 days per week",
           "Item4": "heavy : 5-7 days per week",
+          //home Screen
+          "TitleBannerHome": "you can order by\nusing our coupon",
+          "Order": "Order   >",
+          "Workouts": "Workouts",
+          "TitleCardCaloriesHome": "you can track your data here",
+          "SubTitleCardCaloriesHome": "your calories,steps,water",
+          "SeeAll": "See All >",
+          "Nutrition": "Nutrition",
+          "Home": "Home",
+          "Account": "Account",
+          // MyDrawer in home
+          "Favorite": "Favorite",
+          "Popular": "Popular",
+          "Settings": "Settings",
+          "LogOut": "LogOut",
+          //My Account Screen
+          "MyAccount": "My Account",
+          "Phonee": "Phone",
+          "Update": "Update",
+          //My Favorite screen
+          "MyFavorite": "My Favorite",
+          // My Popular videos screen
+          "PopularVideos": "Popular Videos",
+          // settings screen
+          "Language": "Language",
+          "DarkMood": "Dark Mood",
+          "Appearance": "appearance",
+          "ContactUs": "Contact Us",
+          "English": "English",
+          "Arabic": "Arabic",
+          // WorkOut Screen
+          "Strength": "Strength",
+          "Stretching": "Stretching",
+          "Cardio": "Cardio",
+          "Yoga": "Yoga",
+          "Meditation": "Meditation",
+          "Beginner": "beginner",
+          "Advanced": "advanced",
+          // Calories Screen
+          "MyCalories": "My Calories",
+          "Plan": "Plan",
+          "Calories": "Calories",
+          "Steps": "Steps",
+          "Goal10,000Steps": "goal 10,000 steps",
+          "Water": "Water",
+          // nutrition
+          "FindYourFood": "Find your food",
+          "NoFood": "No Food",
+          //
+          "StrengthTraining": "Strength training",
+          "FullBodyTraining": "Full Body Training",
+          // change password
+          "ChangeYourPassword" : "Change your password",
+          "EnterYourCurrentPassword": "Enter Your Current Password",
+          "CurrentPassword" : "Current Password",
+          "Cancel": "Cancel",
+          "ConfirmNewPassword" : "Confirm New Password",
+          "EnterYourConfirmPassword" : "Enter Your Confirm Password",
+          "ifYouWantChangePasswordClick": "if you want change password click",
+          //contact us screen
+          "PleaseAddYourFeedback" : "please add your feedback",
+          "Yourfeedbacksmustbelongerthan4characters" : "Your feedbacks must be longer than 4 characters",
+          "EnterYourFeedback" : "Enter Your Feedback",
+          "SendMessage" : "Send Message",
+          "Connectwithus" : "Connect with us",
+          "attention": "attention",
+          "Yourfeedbackhasbeensentsuccessfully" : "Your feedback has been sent successfully"
+
         },
         "ar": {
-          "TextSplashScreen": "كن صحيا",
+          "TextSplashScreen": "كن صحياً",
           "TitleOnBoardingOne": "أهلا !",
           "DescreptionOnBoardingOne":
               "هذا التطبيق سوف يساعدك على تحقيق أفضل نتائج",
@@ -104,6 +172,78 @@ class MyTranslation extends Translations {
           "Item2": "ضعيف: 1-3 أيام في الأسبوع",
           "Item3": "متوسطة: 3-5 أيام في الأسبوع",
           "Item4": "كثيف: 5-7 أيام في الأسبوع",
+          // test
+          "1": "مثال",
+          "2": "تبديل السيم",
+          "3": "لعب كره القدم",
+          //home Screen
+          "TitleBannerHome": "يمكنك الطلب \n باستخدام قسيمتنا",
+          "Order": "<   طلبأ",
+          "Workouts": "التدريبات",
+          "TitleCardCaloriesHome": "يمكنك تتبع البيانات الخاصة بك هنا",
+          "SubTitleCardCaloriesHome": "السعرات الحرارية، والخطوات، والمياه",
+          "SeeAll": "< اظهار الكل",
+          "Nutrition": "التغذية",
+          "Home": "الرئيسي",
+          "Account": "حسابي",
+          // MyDrawer in home
+          "Favorite": "مفضل",
+          "Popular": "الاكثر مشاهده",
+          "Settings": "الإعدادات",
+          "LogOut": "تسجيل خروج",
+          //My Account Screen
+          "MyAccount": "حسابي",
+          "Phonee": "هاتف",
+          "Update": "تحديث",
+          //My Favorite screen
+          "MyFavorite": "فديوهاتك المفضله",
+          // My Popular videos screen
+          "PopularVideos": "الفديوهات الأكثر مشاهده",
+          // settings screen
+          "Language": "اللغه",
+          "DarkMood": "داكن",
+          "Appearance": "المظهر",
+          "ContactUs": "اتصل بنا",
+          "English": "الإنجليزية",
+          "Arabic": "العربيه",
+          // WorkOut Screen
+          "Strength": "تمارين قوة",
+          "Stretching": "تمارين الاطالة",
+          "Cardio": "تمارين كارديو",
+          "Yoga": "تمارين اليوغا",
+          "Meditation": "التأمل",
+          "Beginner": "مبتدئ",
+          "Advanced": "متقدم",
+          // Calories Screen
+          "MyCalories": "السعرات الحرارية الخاصة بي",
+          "Plan": "الخطه",
+          "Calories": "السعرات حرارية",
+          "Steps": "الخطوات",
+          "Goal10,000Steps": "الهدف 10.000 خطوة",
+          "Water": "الماء",
+          // nutrition
+          "FindYourFood": "ابحث عن طعامك",
+          "NoFood": "لا يوجد طعام",
+
+          ///
+          "StrengthTraining": "تدريب القوة",
+          "FullBodyTraining": "تدريب كامل الجسم",
+          // change password
+          "ChangeYourPassword" : "قم بتغيير كلمة المرور الخاصة بك",
+          "EnterYourCurrentPassword": "أدخل كلمة المرور الحالية",
+          "CurrentPassword" : "كلمة السر الحالية",
+          "Cancel": "إلغاء",
+          "ConfirmNewPassword" : "تأكيد كلمة المرور الجديدة",
+          "EnterYourConfirmPassword" : "أدخل تأكيد كلمة المرور الخاصة بك",
+          "ifYouWantChangePasswordClick" : " إذا كنت تريد تغيير كلمة المرور انقر",
+            //contact us screen
+          "PleaseAddYourFeedback" : "يرجى إضافة ملاحظاتك",
+          "Yourfeedbacksmustbelongerthan4characters" : "يجب أن تكون تعليقاتك أكبر من 4 حروف",
+          "EnterYourFeedback" : "أدخل ملاحظاتك",
+          "SendMessage" : "أرسل ملاحظاتك",
+          "Connectwithus" : "أتصل بنا",
+          "attention": "إشعار",
+          "Yourfeedbackhasbeensentsuccessfully" : "لقد تم إرسال ملاحظاتك بنجاح"
         },
       };
 }

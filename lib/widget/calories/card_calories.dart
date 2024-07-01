@@ -1,5 +1,6 @@
 import 'package:be_healthy/core/constant/color.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
@@ -10,7 +11,11 @@ class CardCalories extends StatelessWidget {
   final Color colors;
 
   const CardCalories(
-      {super.key, required this.caloriesChange, required this.totalCalories, required this.percent,required this.colors});
+      {super.key,
+      required this.caloriesChange,
+      required this.totalCalories,
+      required this.percent,
+      required this.colors});
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +31,8 @@ class CardCalories extends StatelessWidget {
             lineWidth: 10.0,
             percent: percent,
             animation: true,
-            header: const Text(
-              "Calories",
+            header:  Text(
+              "Calories".tr,
               style: TextStyle(
                   fontSize: 18,
                   color: AppColor.primaryColor,
@@ -47,10 +52,10 @@ class CardCalories extends StatelessWidget {
               ],
             ),
             progressColor: colors,
-            footer: Text(
-              "$caloriesChange left",
-              style: const TextStyle(fontSize: 18, color: Color(0xff646363)),
-            ),
+            // footer: Text(
+            //   "$caloriesChange left",
+            //   style: const TextStyle(fontSize: 18, color: Color(0xff646363)),
+            // ),
           ),
         ),
       ),

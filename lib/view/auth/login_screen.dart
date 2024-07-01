@@ -92,17 +92,23 @@ class LoginScreen extends StatelessWidget {
                         height: 36,
                       ),
                       GetBuilder<LoginController>(builder: (controller) {
-                        return 
-                        HandlingDataRequest(statusRequest: controller.statusRequest!, widget: CustomButton(text: "Login",onPressed: (){controller.sendPostRequest();},))
-                        // controller.isLoading
-                        //     ? const Center(child: CircularProgressIndicator())
-                        //     : CustomButton(
-                        //         text: "Login".tr,
-                        //         onPressed: () {
-                        //           // Get.to(()=>MainHomeScreen());
-                        //           controller.sendPostRequest();
-                        //         })
-                        ;
+                        return HandlingDataRequest(
+                                statusRequest: controller.statusRequest!,
+                                widget: CustomButton(
+                                  text: "Login",
+                                  onPressed: () {
+                                    controller.sendPostRequest();
+                                  },
+                                ))
+                            // controller.isLoading
+                            //     ? const Center(child: CircularProgressIndicator())
+                            //     : CustomButton(
+                            //         text: "Login".tr,
+                            //         onPressed: () {
+                            //           // Get.to(()=>MainHomeScreen());
+                            //           controller.sendPostRequest();
+                            //         })
+                            ;
                       }),
                       const SizedBox(
                         height: 20,
@@ -131,26 +137,26 @@ class LoginScreen extends StatelessWidget {
                       const SizedBox(
                         height: 29,
                       ),
-                      Row(
-                        children: [
-                          const Expanded(
-                              child: Divider(
-                            color: Color(0xffADADAD),
-                          )),
-                          Text(
-                            "CompleteTextUnderButtonLogin".tr,
-                            style: const TextStyle(color: Color(0xff707070)),
-                          ),
-                          const Expanded(
-                              child: Divider(
-                            color: Color(0xffADADAD),
-                          )),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      const LoginWithSocial()
+                      // Row(
+                      //   children: [
+                      //     const Expanded(
+                      //         child: Divider(
+                      //       color: Color(0xffADADAD),
+                      //     )),
+                      //     Text(
+                      //       "CompleteTextUnderButtonLogin".tr,
+                      //       style: const TextStyle(color: Color(0xff707070)),
+                      //     ),
+                      //     const Expanded(
+                      //         child: Divider(
+                      //       color: Color(0xffADADAD),
+                      //     )),
+                      //   ],
+                      // ),
+                      // const SizedBox(
+                      //   height: 20,
+                      // ),
+                      // const LoginWithSocial()
                     ],
                   ),
                 ],

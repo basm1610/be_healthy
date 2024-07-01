@@ -9,6 +9,7 @@ class CustomTextField extends StatelessWidget {
   final String? Function(String?) valid;
   final void Function()? onPressed;
   final TextEditingController? controller;
+  final Color color;
   const CustomTextField(
       {super.key,
       this.icon,
@@ -17,25 +18,24 @@ class CustomTextField extends StatelessWidget {
       this.onPressed,
       this.controller,
       this.keyboardType,
-      required this.valid});
+      
+      required this.valid,  this.color = const Color(0xffADADAD)});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      
-       scrollPadding: EdgeInsets.only(
-          bottom: MediaQuery.of(context).viewInsets.bottom),
+      scrollPadding:
+          EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
       keyboardType: keyboardType,
       controller: controller,
-        autovalidateMode:
-      AutovalidateMode.onUserInteraction,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       validator: valid,
       obscureText: obscureText == false ? false : true,
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: GoogleFonts.quicksand(
           fontSize: 15,
-          color: const Color(0xffADADAD),
+          color:  color,
         ),
         //  TextStyle(
         //   fontSize: 15,

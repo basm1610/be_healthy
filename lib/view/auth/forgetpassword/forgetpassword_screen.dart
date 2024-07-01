@@ -31,14 +31,16 @@ class ForgetPassword extends StatelessWidget {
             children: [
               // logo image
               const LogoWidget(),
+              SizedBox(
+                height: 40,
+              ),
               // const LogoWidget(),
               // description
               TitleAndDescriptionWidget(
-                title: "Enter Your Email",
-                des:
-                    "Sign In Your Email And Password Or  Continue With Social Media",
+                title: "Check Your Email",
+                des: "",
               ),
-              const SizedBox(height: 30),
+              // const SizedBox(height: 30),
               // email filed
               CustomTextField(
                 keyboardType: TextInputType.emailAddress,
@@ -53,14 +55,14 @@ class ForgetPassword extends StatelessWidget {
                 height: 25,
               ),
               // Button check
-              GetBuilder<ForgetPasswordController>(builder: (controller)=>
-              controller.isLoading ? const Center(child: CircularProgressIndicator()):
-              CustomButton(
-                  text: "check",
-                  onPressed: () {
-                    controller.checkEmail();
-                  }))
-              
+              GetBuilder<ForgetPasswordController>(
+                  builder: (controller) => controller.isLoading
+                      ? const Center(child: CircularProgressIndicator())
+                      : CustomButton(
+                          text: "check",
+                          onPressed: () {
+                            controller.checkEmail();
+                          }))
             ],
           ),
         ),

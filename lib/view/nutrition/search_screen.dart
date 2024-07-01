@@ -17,7 +17,7 @@ class SearchScreen extends StatelessWidget {
           child: ListView(
             children: [
               CustomTextFieldSearch(
-                titleappbar: "Find your food",
+                titleappbar: "FindYourFood".tr,
                 // onFieldSubmitted: (){},
                 onPressedSearch: () {
                   controller.getData();
@@ -45,7 +45,7 @@ class SearchScreen extends StatelessWidget {
                                     width: 250, height: 250, repeat: true),
                                 Center(
                                     child: Text(
-                                  "No Food",
+                                  "NoFood".tr,
                                   style: TextStyle(
                                       color:
                                           AppColor.primaryColor.withAlpha(150),
@@ -86,10 +86,10 @@ class ListItemSearch extends GetView<SearchFoodController> {
                 child: ListTile(
                   title: Text(
                       "${controller.foodAllCategoryModel.data![index].name}"),
-                  titleTextStyle: const TextStyle(
+                  titleTextStyle: TextStyle(
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
-                      color: Colors.black),
+                      color: Theme.of(context).colorScheme.onSecondary),
                   // subtitle: Text("180"),
                   trailing: Container(
                       padding: const EdgeInsets.all(10),
@@ -98,7 +98,8 @@ class ListItemSearch extends GetView<SearchFoodController> {
                           borderRadius: BorderRadius.circular(10)),
                       child: Text(
                         "${controller.foodAllCategoryModel.data![index].calorie}",
-                        style: const TextStyle(fontSize: 22, color: Colors.white),
+                        style:
+                            const TextStyle(fontSize: 22, color: Colors.white),
                       )),
                 ),
               ),

@@ -35,8 +35,8 @@ class TextFieldWidgetAuth extends StatelessWidget {
         controller: controller,
         decoration: InputDecoration(
           hintText: hintText,
-          hintStyle: const TextStyle(
-            fontSize: 12,),
+          hintStyle:  TextStyle(
+            fontSize: 12,color: Theme.of(context).colorScheme.onSecondary),
           floatingLabelBehavior: FloatingLabelBehavior.always,
           label: Text(label),
           contentPadding: const EdgeInsets.symmetric(vertical: 5, horizontal: 30),
