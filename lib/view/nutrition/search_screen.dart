@@ -111,8 +111,7 @@ class ListItemSearch extends GetView<SearchFoodController> {
                             print("cancel");
                           },
                           onConfirm: () {
-                            print("confirm");
-                            controller.nutritionDetailsController.sendPostRequest(
+                            controller.sendPostRequest(
                                 "${controller.foodAllCategoryModel.data![index].calorie}");
                             Get.back();
                             Get.snackbar(

@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:be_healthy/controller/home_controller.dart';
 import 'package:be_healthy/controller/main_home_controller.dart';
+import 'package:be_healthy/controller/nutrition/nutrition_controller.dart';
 import 'package:be_healthy/core/constant/routs_name.dart';
 import 'package:be_healthy/core/localization/change_lang.dart';
 import 'package:be_healthy/core/services/myservices.dart';
@@ -14,6 +15,7 @@ class SettingController extends GetxController {
   LocaleController localeController = Get.find();
   HomeController homeController = Get.find();
   MainHomeController mainHomeController = Get.find();
+  NutritionController nutritionController = Get.put(NutritionController());
 
   goToContactUsScreen() {
     Get.toNamed(AppRouts.contactus);
@@ -25,8 +27,8 @@ class SettingController extends GetxController {
     myServices.sharedPreferences.setString("text", value.toString());
     if (value == 'English'.tr) {
       localeController.changeLange("en");
-      log("lang is: ${localeController.myServices.sharedPreferences.getString("lang")}");
       homeController.getNutritionData();
+      nutritionController.getData();
       mainHomeController.titleBottomBar;
       cardWorkoutList[0].title;
       cardWorkoutList[1].title;
@@ -35,8 +37,8 @@ class SettingController extends GetxController {
       update();
     } else if (value == "Arabic".tr) {
       localeController.changeLange("ar");
-      log("lang is: ${localeController.myServices.sharedPreferences.getString("lang")}");
       homeController.getNutritionData();
+      nutritionController.getData();
       mainHomeController.titleBottomBar;
       update();
     }

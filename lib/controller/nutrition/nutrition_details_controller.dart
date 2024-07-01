@@ -25,7 +25,11 @@ class NutritionDetailsController extends GetxController {
     if (connectivityService.isConnected) {
       isLoading = true;
     update();
-    final response = await http.get(Uri.parse("${AppLink.categoryAllFood}$id"));
+    final response = await http.get(Uri.parse("${AppLink.categoryAllFood}$id"),headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'lang': '${myServices.sharedPreferences.getString("lang")}',
+        },);
     if (response.statusCode == 200 || response.statusCode == 201) {
       var jsonResponse = jsonDecode(response.body);
       // foodCategoryModel = FoodCategoryModel.fromJson(jsonResponse);

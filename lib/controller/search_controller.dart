@@ -14,7 +14,6 @@ class SearchFoodController extends GetxController {
   late TextEditingController search;
   FoodAllCategoryModel foodAllCategoryModel = FoodAllCategoryModel();
   MyServices myServices = Get.find();
-  NutritionDetailsController nutritionDetailsController = Get.put(NutritionDetailsController());
 
   getData() async {
     isLoading = true;
@@ -53,6 +52,45 @@ class SearchFoodController extends GetxController {
     isLoading = false;
     update();
   }
+
+  Future<void> sendPostRequest(String numCalories) async {
+    isLoading = true;
+    update();
+    var response = await http.post(Uri.parse(AppLink.addWaterAndCalorie),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization':
+              'Bearer ${myServices.sharedPreferences.getString("token")}',
+        },
+        body: jsonEncode({
+          "caloriesAdded": numCalories,
+        }));
+    var jsonResponse = jsonDecode(response.body);
+    if (response.statusCode == 201 || response.statusCode == 200) {
+      log("success");
+      log("response === ${response.body}");              
+    } else if (jsonResponse['status'] == "fail") {
+      log("${jsonResponse['status']}");
+      log("${jsonResponse['message']}");
+      Get.snackbar(
+        snackPosition: SnackPosition.BOTTOM,
+        "attention",
+        "${jsonResponse['message']}",
+        duration: const Duration(seconds: 2),
+        icon: const Icon(
+          Icons.error_rounded,
+          size: 35,
+        ),
+      );
+    } else {
+      log("${response.statusCode}");
+      log("fiald");
+    }
+    isLoading = false;
+    update();
+  }
+
 
   @override
   void onInit() {
