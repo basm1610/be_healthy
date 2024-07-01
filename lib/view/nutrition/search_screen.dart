@@ -91,6 +91,37 @@ class ListItemSearch extends GetView<SearchFoodController> {
                       fontWeight: FontWeight.bold,
                       color: Theme.of(context).colorScheme.onSecondary),
                   // subtitle: Text("180"),
+                  leading: IconButton(
+                    icon: const Icon(
+                      Icons.add,
+                      size: 40,
+                      color: Color(0xff8B529A),
+                    ),
+                    onPressed: () {
+                      Get.defaultDialog(
+                          backgroundColor:
+                              Theme.of(context).colorScheme.background,
+                          title: "Attention!",
+                          cancelTextColor: AppColor.primaryColor,
+                          confirmTextColor: Colors.white,
+                          buttonColor: AppColor.primaryColor,
+                          middleText:
+                              "Are you sure you want to eat\n${controller.foodAllCategoryModel.data?[index].name}?",
+                          onCancel: () {
+                            print("cancel");
+                          },
+                          onConfirm: () {
+                            print("confirm");
+                            controller.nutritionDetailsController.sendPostRequest(
+                                "${controller.foodAllCategoryModel.data![index].calorie}");
+                            Get.back();
+                            Get.snackbar(
+                                snackPosition: SnackPosition.BOTTOM,
+                                "Nutrition",
+                                "The ${controller.foodAllCategoryModel.data![index].calorie} was added successfully");
+                          });
+                    },
+                  ),
                   trailing: Container(
                       padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(

@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:developer';
+import 'package:be_healthy/controller/nutrition/nutrition_details_controller.dart';
 import 'package:be_healthy/core/constant/link_api.dart';
 import 'package:be_healthy/core/services/myservices.dart';
 import 'package:be_healthy/model/food_all_category_model.dart';
@@ -13,6 +14,7 @@ class SearchFoodController extends GetxController {
   late TextEditingController search;
   FoodAllCategoryModel foodAllCategoryModel = FoodAllCategoryModel();
   MyServices myServices = Get.find();
+  NutritionDetailsController nutritionDetailsController = Get.find();
 
   getData() async {
     isLoading = true;
