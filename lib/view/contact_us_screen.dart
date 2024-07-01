@@ -9,12 +9,13 @@ class ContactUs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     Get.put(ContactUsController());
+    Get.put(ContactUsController());
     return Scaffold(
       appBar: AppBar(
         title: Text(
           "ContactUs".tr,
-          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          style:
+              const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
         backgroundColor: AppColor.primaryColor,
@@ -41,7 +42,8 @@ class ContactUs extends StatelessWidget {
                             if (value!.isEmpty) {
                               return "PleaseAddYourFeedback".tr;
                             } else if (value.length <= 4) {
-                              return "Yourfeedbacksmustbelongerthan4characters".tr;
+                              return "Yourfeedbacksmustbelongerthan4characters"
+                                  .tr;
                             }
                             return null;
                           },
@@ -65,7 +67,8 @@ class ContactUs extends StatelessWidget {
                         },
                         child: Text(
                           "SendMessage".tr,
-                          style: const TextStyle(color: Colors.white, fontSize: 18),
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 18),
                         ),
                       ),
                       SizedBox(
@@ -77,11 +80,10 @@ class ContactUs extends StatelessWidget {
                             fontWeight: FontWeight.bold, fontSize: 20),
                       ),
                       const Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 30, vertical: 5),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 30, vertical: 5),
                         child: Divider(),
                       ),
-
                       ListTile(
                         onTap: () {
                           controller.openEmail();
@@ -112,7 +114,7 @@ class ContactUs extends StatelessWidget {
                         },
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15)),
-                        tileColor: const Color(0xff008E85),
+                        tileColor: AppColor.grey2,
                         iconColor: Colors.white,
                         title: Text(
                           "Phone".tr,

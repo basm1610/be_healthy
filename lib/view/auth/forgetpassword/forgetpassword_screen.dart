@@ -24,16 +24,16 @@ class ForgetPassword extends StatelessWidget {
       ),
       backgroundColor: Colors.white,
       body: Container(
-        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+        padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 30),
         child: Form(
           key: controller.formState,
           child: ListView(
             children: [
               // logo image
               const LogoWidget(),
-              SizedBox(
-                height: 40,
-              ),
+              // SizedBox(
+              //   height: 40,
+              // ),
               // const LogoWidget(),
               // description
               TitleAndDescriptionWidget(

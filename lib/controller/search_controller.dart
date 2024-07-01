@@ -14,7 +14,7 @@ class SearchFoodController extends GetxController {
   late TextEditingController search;
   FoodAllCategoryModel foodAllCategoryModel = FoodAllCategoryModel();
   MyServices myServices = Get.find();
-  NutritionDetailsController nutritionDetailsController = Get.find();
+  NutritionDetailsController nutritionDetailsController = Get.put(NutritionDetailsController());
 
   getData() async {
     isLoading = true;

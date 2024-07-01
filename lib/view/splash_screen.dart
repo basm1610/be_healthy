@@ -10,10 +10,10 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(SplashController());
     return Scaffold(
-      backgroundColor: const Color(0xffDBB3FB),
+      // backgroundColor: const Color(0xffDBB3FB),
       // appBar: AppBar(),
 
-      body: LogoWidget(),
+      body: Center(child: LogoWidget()),
     );
   }
 }

@@ -21,10 +21,11 @@ class ResetPasswordScreen extends StatelessWidget {
           centerTitle: true,
           backgroundColor: Colors.white,
           elevation: 0.0,
+          
         ),
         backgroundColor: Colors.white,
         body: Container(
-          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+          padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 30),
           child: GetBuilder<ResetPasswordController>(
               builder: (controller) => controller.isLoading
                   ? const Center(child: CircularProgressIndicator())
