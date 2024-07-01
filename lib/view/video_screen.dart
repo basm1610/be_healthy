@@ -25,10 +25,41 @@ class VideoScreen extends StatelessWidget {
         actions: [
           Padding(
             padding: const EdgeInsets.all(10.0),
-            child: Icon(
-              Icons.favorite_border_outlined,
-              size: 30,
-            ),
+            child: GetBuilder<VideoController>(
+                builder: (controller) => IconButton(
+                      icon: Icon(
+                       controller
+                                .isFavorite[controller.videoDataModel.data?.sId] ==
+                            "1"
+                            ? Icons.favorite
+                            : Icons.favorite_border_outlined,
+                        size: 30,
+                        color: Colors.red,
+                      ),
+                      onPressed: () {
+                        if (controller
+                                .isFavorite[controller.videoDataModel.data?.sId] ==
+                            "1") {
+                          controller.setFavorite(
+                              "${controller.videoDataModel.data?.sId}", "0");
+                          controller
+                              .deleteFavorite(controller.videoDataModel.data?.sId!);
+                        } else {
+                          controller.setFavorite(
+                              "${controller.videoDataModel.data?.sId}", "1");
+                          controller.addFavorite(controller.videoDataModel.data?.sId!);
+                        }
+                        // if (controller.myServices.sharedPreferences
+                        //         .getString("isFav") ==
+                        //     "1") {
+                        //   controller.addFavorite("itemId");
+                        // } else if (controller.myServices.sharedPreferences
+                        //         .getString("isFav") ==
+                        //     "0") {
+                        //   controller.deleteFavorite("itemId");
+                        // }
+                      },
+                    )),
           )
         ],
       ),

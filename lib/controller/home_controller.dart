@@ -69,7 +69,7 @@ class HomeController extends GetxController {
   }
 
   Future<void> getData() async {
-    if (!connectivityService.isConnected) {
+    
       try {
         isLoading = true;
         update();
@@ -84,10 +84,7 @@ class HomeController extends GetxController {
       } catch (e) {
         log("message $e");
       }
-    } else {
-      // Get.snackbar('No Internet', 'Please check your internet connection.');
-      log("Not connect");
-    }
+    
     update();
   }
 

@@ -30,7 +30,7 @@ class ExerciseSection extends StatelessWidget {
                                      EdgeInsets.symmetric(horizontal: 5.w),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(15),
-                                  child: controller.isLoading? CircularProgressIndicator() :Image.network(
+                                  child: Image.network(
                                     "${controller.workOutModel.data?[index].image}"
                                     // "${AppLink.imageTraining}/${controller.workOutModel.data?[index].image}"
                                     ,

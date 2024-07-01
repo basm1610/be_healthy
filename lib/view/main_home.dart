@@ -13,7 +13,7 @@ class MainHomeScreen extends StatelessWidget {
     Get.put(MainHomeController());
     return GetBuilder<MainHomeController>(builder: (controller) {
       return Scaffold(
-        bottomNavigationBar: const BottomAppBarWidget(),
+        bottomNavigationBar:  BottomAppBarWidget(),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FittedBox(
           child: FloatingActionButton(

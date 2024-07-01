@@ -46,15 +46,15 @@ class WorkOutScreen extends StatelessWidget {
                         childAspectRatio: 1.29,
                       ),
                       itemBuilder: (context, index) {
-                        return WorkOutCard(
+                        return GetBuilder<WorkoutController>(builder: (controller)=>WorkOutCard(
                           assetName: "${cardWorkoutList[index].image}",
                           title: "${cardWorkoutList[index].title}".tr,
                           color: cardWorkoutList[index].color,
                           onTap: () {
                             controller.goToPageStrength(
-                                "${cardWorkoutList[index].title}");
+                                "${cardWorkoutList[index].title}".tr);
                           },
-                        );
+                        ));
                       }),
                 ),
                 // const Text(

@@ -14,6 +14,7 @@ class StrengthController extends GetxController {
   bool isLoading = false;
   String level = "Beginner".tr;
   WorkOutModel workOutModel = WorkOutModel();
+  NetworkService networkService = Get.put(NetworkService());
   final ConnectivityService connectivityService = Get.find();
   MyServices myServices = Get.find();
 

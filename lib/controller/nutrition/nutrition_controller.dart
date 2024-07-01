@@ -11,9 +11,8 @@ import 'package:http/http.dart' as http;
 
 class NutritionController extends GetxController {
   FoodCategoryModel foodCategoryModel = FoodCategoryModel();
-  // NetworkService networkService = Get.put(NetworkService());
-    final ConnectivityService connectivityService = Get.find();
-
+  NetworkService networkService = Get.put(NetworkService());
+  final ConnectivityService connectivityService = Get.find();
   MyServices myServices = Get.find();
 
   goToSearch() {

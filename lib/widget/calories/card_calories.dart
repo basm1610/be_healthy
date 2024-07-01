@@ -31,7 +31,7 @@ class CardCalories extends StatelessWidget {
             lineWidth: 10.0,
             percent: percent,
             animation: true,
-            header:  Text(
+            header: Text(
               "Calories".tr,
               style: TextStyle(
                   fontSize: 18,

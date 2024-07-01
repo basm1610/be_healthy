@@ -11,6 +11,8 @@ ThemeData lightMode = ThemeData(
         onSurface: Color(0xff6A6A6A),
         onBackground: Color(0xffEBE3DE),
         secondary: Colors.white,
+        // surface: AppColor.grey4,
+        onPrimary: AppColor.grey4,
         background: Colors.white));
 
 ThemeData darkMode = ThemeData(
@@ -21,4 +23,6 @@ ThemeData darkMode = ThemeData(
         onSurface: Colors.white,
         onBackground: Color(0xff423e3b),
         secondary: Color(0xff524c49),
+        // surface: Colors.black26,
+        onPrimary: Colors.black26,
         background: Colors.black));

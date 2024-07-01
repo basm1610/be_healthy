@@ -13,7 +13,7 @@ class MeditationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     MeditationController controller = Get.put(MeditationController());
     return Scaffold(
-      backgroundColor: AppColor.grey4,
+      backgroundColor: Theme.of(context).colorScheme.onPrimary,
       appBar: AppBar(
         backgroundColor: AppColor.primaryColor,
         iconTheme: IconThemeData(color: Colors.white),

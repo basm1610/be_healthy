@@ -24,12 +24,15 @@ class LocaleController extends GetxController {
     if (sharedPrefLang == "ar") {
       isLang = true;
       language = const Locale("ar");
+      update();
     } else if (sharedPrefLang == "en") {
       isLang = false;
       language = const Locale("en");
+      update();
     } else {
       language = Locale(Get.deviceLocale!.languageCode);
       isLang;
+      update();
     }
     super.onInit();
   }

@@ -6,6 +6,7 @@ import 'package:be_healthy/core/constant/routs_name.dart';
 import 'package:be_healthy/core/localization/change_lang.dart';
 import 'package:be_healthy/core/services/myservices.dart';
 import 'package:get/get.dart';
+import 'package:be_healthy/data/static/static.dart';
 
 class SettingController extends GetxController {
   String selectedItem = "English";
@@ -27,12 +28,17 @@ class SettingController extends GetxController {
       log("lang is: ${localeController.myServices.sharedPreferences.getString("lang")}");
       homeController.getNutritionData();
       mainHomeController.titleBottomBar;
+      cardWorkoutList[0].title;
+      cardWorkoutList[1].title;
+      cardWorkoutList[2].title;
+      cardWorkoutList[3].title;
+      update();
     } else if (value == "Arabic".tr) {
       localeController.changeLange("ar");
       log("lang is: ${localeController.myServices.sharedPreferences.getString("lang")}");
       homeController.getNutritionData();
       mainHomeController.titleBottomBar;
-
+      update();
     }
     update();
   }
