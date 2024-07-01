@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:be_healthy/controller/favourite_controller.dart';
 import 'package:be_healthy/core/constant/color.dart';
 import 'package:be_healthy/widget/offline_widget.dart';
@@ -14,7 +16,7 @@ class FavouriteScreen extends StatelessWidget {
     FavouriteController controller = Get.put(FavouriteController());
     return Scaffold(
       appBar: AppBar(
-        title:  Text(
+        title: Text(
           "MyFavorite".tr,
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
@@ -59,6 +61,8 @@ class FavoriteItems extends StatelessWidget {
                               padding: const EdgeInsets.all(2.0),
                               child: InkWell(
                                 onTap: () {
+                                  log("${controller.favouriteModel.data?[index].sId}");
+                                  log("${controller.favouriteModel.data?[index].name}");
                                   controller.deleteFav(
                                       "${controller.favouriteModel.data?[index].sId}");
                                 },

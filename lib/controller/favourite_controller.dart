@@ -45,12 +45,12 @@ class FavouriteController extends GetxController {
     }
   }
 
-  deleteFav(var itemId) async {
+  deleteFav(String itemId) async {
     // getData();
     isLoading = true;
     update();
     final response = await http.delete(
-      Uri.parse("${AppLink.deleteFavourite}${itemId.toString()}"),
+      Uri.parse("${AppLink.deleteFavourite}$itemId"),
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
